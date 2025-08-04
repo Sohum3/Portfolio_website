@@ -20,27 +20,26 @@
         /* Custom styles for the page */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0c0a1a;
+            background-color: #0c141c; /* Dark blue fallback color */
             color: #e0e0e0;
             overflow-x: hidden;
-            /* Set the background image with the reliable link you provided */
-            background-image: url('https://i.postimg.cc/vBB0kj2M/123520-Ori-and-the-Will-of-the-Wisps-screen-shot-video-games.jpg');
-            background-size: cover; /* Cover the entire viewport */
-            background-position: center center; /* Center the image */
-            background-repeat: no-repeat; /* Do not repeat the image */
-            background-attachment: fixed; /* Keep the background fixed during scroll */
+            background-image: url('https://i.postimg.cc/tJXNWMM8/pexels-pixabay-268533.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
-        /* NEW: Gradient text style - Gold/Orange theme */
+        /* Gradient text style - Cool Ice theme */
         .text-gradient {
-            background: linear-gradient(90deg, #FDB813, #F59E0B, #D97706);
+            background: linear-gradient(90deg, #38BDF8, #22D3EE, #67E8F9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
         }
 
-        /* Main container to hold the page content and background */
+        /* Main container */
         .main-container {
             position: relative;
             width: 100vw;
@@ -48,7 +47,7 @@
             display: flex;
         }
         
-        /* NEW: Sidebar navigation link styling - Amber theme */
+        /* Sidebar navigation link styling - Cool Ice theme */
         .nav-link {
             transition: all 0.3s ease;
         }
@@ -57,8 +56,8 @@
             transform: translateX(5px);
         }
         .nav-link.active {
-             background-color: rgba(245, 158, 11, 0.2);
-             border-left: 3px solid #F59E0B;
+             background-color: rgba(34, 211, 238, 0.2);
+             border-left: 3px solid #22D3EE;
         }
         
         /* General page content styling */
@@ -71,16 +70,16 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* NEW: Card styling - Amber/Gold border */
+        /* Card styling - Cool Ice border and more opaque background */
         .card {
-            background-color: rgba(12, 10, 26, 0.7); 
-            border: 1px solid rgba(217, 119, 6, 0.3);
+            background-color: rgba(15, 23, 42, 0.85); 
+            border: 1px solid rgba(56, 189, 248, 0.3);
             backdrop-filter: blur(8px);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2);
+            box-shadow: 0 10px 20px rgba(34, 211, 238, 0.2);
         }
         .card-logo {
             background-color: rgba(255,255,255,0.1);
@@ -93,21 +92,21 @@
             object-fit: contain;
         }
         
-        /* NEW: Project filter button styling - Amber theme */
+        /* Project filter button styling - Cool Ice theme */
         .filter-btn {
             background-color: transparent;
-            border: 1px solid #78350F;
-            color: #FBBF24;
+            border: 1px solid #0E7490;
+            color: #67E8F9;
             transition: all 0.3s ease;
         }
         .filter-btn:hover {
-            background-color: #78350F;
+            background-color: #0E7490;
             color: white;
         }
         .filter-btn.active {
-            background-color: #F59E0B;
-            color: white;
-            border-color: #F59E0B;
+            background-color: #22D3EE;
+            color: #111827;
+            border-color: #22D3EE;
         }
 
         /* Project card animation and cursor */
@@ -129,7 +128,7 @@
         /* Loading spinner */
         .loader {
             border: 4px solid #f3f3f3;
-            border-top: 4px solid #F59E0B;
+            border-top: 4px solid #22D3EE;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -146,43 +145,51 @@
 <body>
 
     <!-- Dark overlay for readability -->
-    <div class="fixed inset-0 bg-black bg-opacity-50 z-[-1]"></div>
+    <div class="fixed inset-0 bg-black bg-opacity-60 z-[-1]"></div>
 
     <div class="main-container">
         <!-- Left Sidebar Navigation -->
         <nav class="bg-black bg-opacity-20 backdrop-blur-sm w-20 lg:w-64 flex-shrink-0 border-r border-white/10 flex flex-col justify-center items-center lg:items-start p-4 transition-all duration-300">
             <ul class="space-y-4 w-full">
-                <li><a href="#home" class="nav-link active flex items-center p-3 rounded-lg text-white" data-target="home-page">
+                <li><a href="#home" class="nav-link group relative active flex items-center p-3 rounded-lg text-white" data-target="home-page">
                     <i class="fas fa-home fa-fw w-8 text-center text-lg"></i>
                     <span class="hidden lg:inline ml-4 font-medium">Home</span>
+                    <span class="absolute left-full ml-4 px-2 py-1 bg-gray-900/80 text-white text-sm rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap lg:hidden pointer-events-none">Home</span>
                 </a></li>
-                <li><a href="#career" class="nav-link flex items-center p-3 rounded-lg text-white" data-target="career-page">
+                <li><a href="#career" class="nav-link group relative flex items-center p-3 rounded-lg text-white" data-target="career-page">
                     <i class="fas fa-briefcase fa-fw w-8 text-center text-lg"></i>
                     <span class="hidden lg:inline ml-4 font-medium">Career</span>
+                    <span class="absolute left-full ml-4 px-2 py-1 bg-gray-900/80 text-white text-sm rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap lg:hidden pointer-events-none">Career</span>
                 </a></li>
-                <li><a href="#education" class="nav-link flex items-center p-3 rounded-lg text-white" data-target="education-page">
+                <li><a href="#education" class="nav-link group relative flex items-center p-3 rounded-lg text-white" data-target="education-page">
                     <i class="fas fa-graduation-cap fa-fw w-8 text-center text-lg"></i>
                     <span class="hidden lg:inline ml-4 font-medium">Education</span>
+                    <span class="absolute left-full ml-4 px-2 py-1 bg-gray-900/80 text-white text-sm rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap lg:hidden pointer-events-none">Education</span>
                 </a></li>
-                <li><a href="#projects" class="nav-link flex items-center p-3 rounded-lg text-white" data-target="projects-page">
+                <li><a href="#projects" class="nav-link group relative flex items-center p-3 rounded-lg text-white" data-target="projects-page">
                     <i class="fas fa-code-branch fa-fw w-8 text-center text-lg"></i>
                     <span class="hidden lg:inline ml-4 font-medium">Projects</span>
+                    <span class="absolute left-full ml-4 px-2 py-1 bg-gray-900/80 text-white text-sm rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap lg:hidden pointer-events-none">Projects</span>
                 </a></li>
-                <li><a href="https://github.com/Sohum3" target="_blank" class="nav-link flex items-center p-3 rounded-lg text-white">
+                <li><a href="https://github.com/Sohum3" target="_blank" class="nav-link group relative flex items-center p-3 rounded-lg text-white">
                     <i class="fab fa-github fa-fw w-8 text-center text-lg"></i>
                     <span class="hidden lg:inline ml-4 font-medium">GitHub</span>
+                    <span class="absolute left-full ml-4 px-2 py-1 bg-gray-900/80 text-white text-sm rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap lg:hidden pointer-events-none">GitHub</span>
                 </a></li>
-                <li><a href="https://www.linkedin.com/in/sohum2001/" target="_blank" class="nav-link flex items-center p-3 rounded-lg text-white">
+                <li><a href="https://www.linkedin.com/in/sohum2001/" target="_blank" class="nav-link group relative flex items-center p-3 rounded-lg text-white">
                     <i class="fab fa-linkedin fa-fw w-8 text-center text-lg"></i>
                     <span class="hidden lg:inline ml-4 font-medium">LinkedIn</span>
+                    <span class="absolute left-full ml-4 px-2 py-1 bg-gray-900/80 text-white text-sm rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap lg:hidden pointer-events-none">LinkedIn</span>
                 </a></li>
-                <li><a href="#interests" class="nav-link flex items-center p-3 rounded-lg text-white" data-target="interests-page">
+                <li><a href="#interests" class="nav-link group relative flex items-center p-3 rounded-lg text-white" data-target="interests-page">
                     <i class="fas fa-heart fa-fw w-8 text-center text-lg"></i>
                     <span class="hidden lg:inline ml-4 font-medium">Interests</span>
+                    <span class="absolute left-full ml-4 px-2 py-1 bg-gray-900/80 text-white text-sm rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap lg:hidden pointer-events-none">Interests</span>
                 </a></li>
-                <li><a href="#music" class="nav-link flex items-center p-3 rounded-lg text-white" data-target="music-page">
+                <li><a href="#music" class="nav-link group relative flex items-center p-3 rounded-lg text-white" data-target="music-page">
                     <i class="fas fa-music fa-fw w-8 text-center text-lg"></i>
                     <span class="hidden lg:inline ml-4 font-medium">Music</span>
+                    <span class="absolute left-full ml-4 px-2 py-1 bg-gray-900/80 text-white text-sm rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap lg:hidden pointer-events-none">Music</span>
                 </a></li>
             </ul>
         </nav>
@@ -199,13 +206,13 @@
                     <p class="text-xl md:text-2xl text-gray-300 mb-8">
                         ML Researcher & AI Engineer
                     </p>
-                    <p id="bio-text" class="text-lg text-gray-300 max-w-2xl mx-auto mb-4 text-left leading-relaxed bg-black/30 p-6 rounded-lg">
+                    <p id="bio-text" class="text-lg text-gray-300 max-w-2xl mx-auto mb-4 text-left leading-relaxed bg-slate-900/70 backdrop-blur-sm p-6 rounded-lg">
                         Hi, I’m Sohum — a final-year Computer Science Engineering student at PES University with a deep drive to build the future through Machine Learning and AI. From the beginning of my journey in tech, I’ve always been more interested in solving meaningful, real-world problems than just chasing buzzwords. My fascination with intelligent systems comes from a desire to create solutions that aren’t just smart — but genuinely impactful.<br><br>
                         Over the years, I’ve moved beyond textbooks to get hands-on with ML projects — from building object detection systems to working on real-time predictive models and resource optimization tools. I don’t just want to be someone who implements existing models; I want to understand them, question them, and push their boundaries. Research is where I find myself most alive — diving deep into papers, experimenting, failing fast, and learning faster.<br><br>
                         Looking ahead, I’m driven by the goal of becoming an ML Researcher/Engineer who not only builds innovative systems but contributes to the core evolution of AI itself. Whether it's through research labs, open-source contributions, or building scalable products — I’m here to leave my mark.
                     </p>
                     
-                    <button id="open-ai-modal-btn" class="my-6 text-sm text-amber-400 hover:text-amber-300 transition-colors duration-300">
+                    <button id="open-ai-modal-btn" class="my-6 text-sm text-cyan-400 hover:text-cyan-300 transition-colors duration-300">
                         ✨ Generate an alternative bio with AI
                     </button>
 
@@ -228,7 +235,7 @@
                         </div>
                         <div class="flex-grow">
                             <h3 class="text-2xl font-bold text-white">Intern</h3>
-                            <p class="font-semibold text-amber-300">Nimble Vision</p>
+                            <p class="font-semibold text-cyan-400">Nimble Vision</p>
                             <p class="text-gray-400 mb-4">Feb 2025 & Jul 2024 - Aug 2024</p>
                             <ul class="list-disc list-inside text-gray-300 space-y-2">
                                 <li>Trained a custom YOLOv8 model to detect pets, humans, and trucks for surveillance, achieving 72% accuracy.</li>
@@ -244,7 +251,7 @@
                         </div>
                         <div class="flex-grow">
                             <h3 class="text-2xl font-bold text-white">Intern</h3>
-                            <p class="font-semibold text-amber-300">Oil and Natural Gas Corporation (ONGC)</p>
+                            <p class="font-semibold text-cyan-400">Oil and Natural Gas Corporation (ONGC)</p>
                             <p class="text-gray-400 mb-4">May 2024 - Jul 2024</p>
                             <ul class="list-disc list-inside text-gray-300 space-y-2">
                                 <li>Automated the payroll process, significantly reducing manual effort and minimizing errors.</li>
@@ -266,7 +273,7 @@
                         </div>
                         <div class="flex-grow">
                             <h3 class="text-2xl font-bold text-white">B.Tech in Computer Science</h3>
-                            <p class="font-semibold text-amber-300">PES University, Bengaluru</p>
+                            <p class="font-semibold text-cyan-400">PES University, Bengaluru</p>
                             <p class="text-gray-400 mb-4">2022 - 2026</p>
                         </div>
                     </div>
@@ -277,7 +284,7 @@
                         </div>
                         <div class="flex-grow">
                             <h3 class="text-2xl font-bold text-white">CBSE Class XII</h3>
-                            <p class="font-semibold text-amber-300">Modern School, Barakhamba Road, New Delhi</p>
+                            <p class="font-semibold text-cyan-400">Modern School, Barakhamba Road, New Delhi</p>
                             <p class="text-gray-400 mb-4">2019</p>
                         </div>
                     </div>
@@ -304,16 +311,69 @@
             </div>
 
             <!-- Interests Page -->
-            <div id="interests-page" class="page-content hidden flex flex-col items-center justify-center text-center h-full">
-                <h2 class="text-4xl font-bold text-gradient mb-10">Interests</h2>
-                <p class="text-lg text-gray-400">This section is under construction. Check back soon!</p>
+            <div id="interests-page" class="page-content hidden">
+                <h2 class="text-4xl font-bold text-gradient mb-10 text-center">Interests & Hobbies</h2>
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-center text-lg text-gray-300 mb-12">Beyond the world of code and data, here are a few things I'm passionate about.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                        <!-- Card 1: Music -->
+                        <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
+                            <i class="fas fa-music fa-3x mb-4 text-cyan-400"></i>
+                            <h3 class="text-xl font-bold text-white">Music</h3>
+                        </div>
+                        <!-- Card 2: Badminton -->
+                        <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
+                            <i class="fas fa-shuttlecock fa-3x mb-4 text-cyan-400"></i>
+                            <h3 class="text-xl font-bold text-white">Badminton</h3>
+                        </div>
+                        <!-- Card 3: Anime -->
+                        <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
+                            <i class="fas fa-dragon fa-3x mb-4 text-cyan-400"></i>
+                            <h3 class="text-xl font-bold text-white">Anime</h3>
+                        </div>
+                        <!-- Card 4: PC Games -->
+                        <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
+                            <i class="fas fa-gamepad fa-3x mb-4 text-cyan-400"></i>
+                            <h3 class="text-xl font-bold text-white">PC Games</h3>
+                        </div>
+                        <!-- Card 5: Cinema -->
+                        <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
+                            <i class="fas fa-film fa-3x mb-4 text-cyan-400"></i>
+                            <h3 class="text-xl font-bold text-white">Cinema</h3>
+                            <p class="text-gray-400 text-sm">(Hollywood & Bollywood)</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Music Page -->
             <div id="music-page" class="page-content hidden">
                 <h2 class="text-4xl font-bold text-gradient mb-10">Music</h2>
                 <div class="max-w-4xl mx-auto">
-                    <p class="text-lg text-gray-400">This section is currently under development. The goal is to integrate with the Spotify API to show my live listening activity.</p>
+                    
+                    <div id="loading-spotify" class="flex justify-center items-center h-48">
+                         <div class="loader"></div>
+                    </div>
+            
+                    <div id="spotify-content" class="hidden">
+                        <p class="text-lg text-gray-400 mb-8">Here's a glimpse into what I'm listening to on Spotify, updated in real-time.</p>
+                        
+                        <!-- Currently Playing Card -->
+                        <div id="currently-playing-card" class="card rounded-xl p-6 mb-8">
+                            <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                                <i class="fab fa-spotify text-green-500 mr-3"></i> 
+                                <span id="spotify-status">Currently Listening</span>
+                            </h3>
+                            <a id="song-link" href="#" target="_blank" class="flex items-center gap-6 group">
+                                <img id="album-art" src="https://placehold.co/150x150/191414/ffffff?text=Album+Art" alt="Album Art" class="w-24 h-24 md:w-36 md:h-36 rounded-lg shadow-lg group-hover:scale-105 transition-transform duration-300">
+                                <div>
+                                    <p id="song-title" class="text-xl md:text-2xl font-bold text-white group-hover:text-green-400 transition-colors">Song Title</p>
+                                    <p id="artist-name" class="text-lg md:text-xl text-gray-300">Artist Name</p>
+                                    <p id="album-name" class="text-md text-gray-400">Album Name</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -323,19 +383,19 @@
 
     <!-- AI Bio Generator Modal -->
     <div id="ai-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
-        <div class="bg-[#1a132d] rounded-2xl shadow-2xl p-8 w-11/12 md:w-1/2 lg:w-1/3 border border-amber-800/50">
+        <div class="bg-[#1a132d] rounded-2xl shadow-2xl p-8 w-11/12 md:w-1/2 lg:w-1/3 border border-cyan-800/50">
             <h2 class="text-2xl font-bold mb-4 text-gradient">AI Bio Generator</h2>
             <p class="text-gray-400 mb-6">Enter some keywords to inspire the AI. The more descriptive, the better!</p>
             <div id="modal-content">
-                <input id="keywords-input" type="text" placeholder="e.g., React, Python, pixel art, sci-fi movies" class="w-full bg-gray-900/50 border border-amber-700/50 rounded-lg p-3 mb-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
-                <textarea id="generated-bio-textarea" rows="5" class="w-full bg-gray-900/50 border border-amber-700/50 rounded-lg p-3 mb-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500" readonly placeholder="Your AI-generated bio will appear here..."></textarea>
+                <input id="keywords-input" type="text" placeholder="e.g., React, Python, pixel art, sci-fi movies" class="w-full bg-gray-900/50 border border-cyan-700/50 rounded-lg p-3 mb-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                <textarea id="generated-bio-textarea" rows="5" class="w-full bg-gray-900/50 border border-cyan-700/50 rounded-lg p-3 mb-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500" readonly placeholder="Your AI-generated bio will appear here..."></textarea>
             </div>
             <div id="loader-container" class="hidden items-center justify-center h-48">
                 <div class="loader"></div>
             </div>
             <div class="flex justify-end gap-4">
                 <button id="close-modal-btn" class="bg-transparent border border-gray-600 text-gray-300 font-bold py-2 px-6 rounded-lg hover:bg-gray-800 transition-all duration-300">Close</button>
-                <button id="generate-bio-btn" class="bg-gradient-to-r from-amber-600 to-yellow-600 text-white font-bold py-2 px-6 rounded-lg hover:shadow-xl transition-all duration-300">Generate</button>
+                <button id="generate-bio-btn" class="bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-bold py-2 px-6 rounded-lg hover:shadow-xl transition-all duration-300">Generate</button>
                 <button id="use-bio-btn" class="bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-500 transition-all duration-300 hidden">Use This Bio</button>
             </div>
         </div>
@@ -343,7 +403,7 @@
 
     <!-- Project Detail Modal -->
     <div id="project-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 hidden" >
-        <div class="modal-container bg-[#1a132d] rounded-2xl shadow-2xl w-full max-w-3xl border border-amber-800/50 max-h-[90vh] overflow-y-auto transform scale-95 opacity-0">
+        <div class="modal-container bg-[#1a132d] rounded-2xl shadow-2xl w-full max-w-3xl border border-cyan-800/50 max-h-[90vh] overflow-y-auto transform scale-95 opacity-0">
             <div class="p-6 md:p-8 relative">
                 <button id="close-project-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-white text-2xl">&times;</button>
                 <img id="project-modal-image" src="" alt="Project Image" class="w-full h-64 object-cover rounded-lg mb-6">
@@ -351,7 +411,7 @@
                 <div id="project-modal-tags" class="flex flex-wrap gap-2 mb-6"></div>
                 <p id="project-modal-description" class="text-gray-300 leading-relaxed"></p>
                 <div class="mt-8">
-                    <a id="project-modal-link" href="#" target="_blank" class="inline-block bg-gradient-to-r from-amber-600 to-yellow-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-xl transition-all duration-300">
+                    <a id="project-modal-link" href="#" target="_blank" class="inline-block bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-xl transition-all duration-300">
                         <i class="fab fa-github mr-2"></i> View on GitHub
                     </a>
                 </div>
@@ -362,24 +422,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Page Navigation Logic ---
-            const navLinks = document.querySelectorAll('.nav-link');
-            const pages = document.querySelectorAll('.page-content');
-
-            navLinks.forEach(link => {
-                if (link.target === '_blank') return;
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('data-target');
-                    if (!targetId) return;
-                    navLinks.forEach(nav => nav.classList.remove('active'));
-                    link.classList.add('active');
-                    pages.forEach(page => {
-                        page.classList.toggle('hidden', page.id !== targetId);
-                    });
-                });
-            });
-
             // --- Project Data ---
             const projects = [
                 {
@@ -451,8 +493,73 @@
                     tags: ['SAP ABAP', 'Automation', 'Enterprise'],
                     imageUrl: 'https://placehold.co/600x400/6A5ACD/FFFFFF?text=SAP+Automation',
                     githubUrl: 'https://github.com/Sohum3/Pay-Slip-Automation-System'
+                },
+                {
+                    id: 8,
+                    title: 'Hotel Management GUI',
+                    shortDescription: "A desktop application with a Tkinter GUI to streamline hotel check-in and check-out.",
+                    longDescription: "Designed and implemented a graphical user interface (GUI) for hotel management using Python's Tkinter library. The application streamlined check-in and check-out processes, enhancing operational efficiency for hotel staff by providing an intuitive and easy-to-use interface for managing guest data and room status.",
+                    category: 'other',
+                    tags: ['Python', 'Tkinter', 'GUI'],
+                    imageUrl: 'https://placehold.co/600x400/7B68EE/FFFFFF?text=Hotel+GUI',
+                    githubUrl: '#'
+                },
+                {
+                    id: 9,
+                    title: 'Fitness Tracker with Hash Tables',
+                    shortDescription: "A fitness tracker application leveraging hash tables for efficient data management.",
+                    longDescription: "Developed a fitness tracker application leveraging hash tables for efficient data storage and retrieval of user activities and stats. The project demonstrated strong proficiency in fundamental data structures and algorithms (DSA) while managing user fitness data effectively, ensuring quick access and updates.",
+                    category: 'other',
+                    tags: ['Python', 'Data Structures', 'Algorithms', 'Hash Tables'],
+                    imageUrl: 'https://placehold.co/600x400/20B2AA/FFFFFF?text=Fitness+Tracker',
+                    githubUrl: '#'
+                },
+                {
+                    id: 10,
+                    title: 'Parity Checker in iVerilog',
+                    shortDescription: "Engineered and validated a parity checker circuit using iVerilog for hardware description.",
+                    longDescription: "Engineered and validated a parity checker circuit using iVerilog for hardware description. The project emphasized digital design principles and verification techniques, ensuring robust functionality for error detection in data transmission. This involved writing synthesizable Verilog code and creating a testbench for thorough simulation.",
+                    category: 'other',
+                    tags: ['iVerilog', 'Hardware', 'Digital Design'],
+                    imageUrl: 'https://placehold.co/600x400/32CD32/FFFFFF?text=iVerilog+Circuit',
+                    githubUrl: '#'
+                },
+                {
+                    id: 11,
+                    title: 'Flight Management System',
+                    shortDescription: "A comprehensive flight management system built in both Python and C.",
+                    longDescription: "Built a comprehensive flight management system in both Python and C, managing flight schedules, bookings, and customer data. This project highlighted cross-language programming skills and the ability to deliver robust, efficient solutions for complex logistical problems. The dual implementation showcased the trade-offs between Python's rapid development and C's performance.",
+                    category: 'other',
+                    tags: ['Python', 'C', 'System Design'],
+                    imageUrl: 'https://placehold.co/600x400/00CED1/FFFFFF?text=Flight+System',
+                    githubUrl: '#'
                 }
             ];
+
+            // --- Page Navigation & Spotify Fetch Logic ---
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page-content');
+            let spotifyDataFetched = false; // Flag to fetch only once
+
+            navLinks.forEach(link => {
+                if (link.target === '_blank') return;
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('data-target');
+                    if (!targetId) return;
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    link.classList.add('active');
+                    pages.forEach(page => {
+                        page.classList.toggle('hidden', page.id !== targetId);
+                    });
+
+                    // Fetch spotify data only when music page is clicked for the first time
+                    if (targetId === 'music-page' && !spotifyDataFetched) {
+                        fetchNowPlaying();
+                        spotifyDataFetched = true;
+                    }
+                });
+            });
 
             // --- Project Filtering & Rendering Logic ---
             const projectGrid = document.getElementById('project-grid');
@@ -469,7 +576,7 @@
 
                     let tagsHTML = '';
                     project.tags.forEach(tag => {
-                        tagsHTML += `<span class="bg-amber-900/50 text-amber-300 py-1 px-2 rounded">${tag}</span>`;
+                        tagsHTML += `<span class="bg-cyan-900/50 text-cyan-300 py-1 px-2 rounded">${tag}</span>`;
                     });
 
                     card.innerHTML = `
@@ -543,634 +650,47 @@
             // Initial render of all projects
             renderProjects();
 
-            // --- AI Bio Generator Modal Logic ---
-            const aiModal = document.getElementById('ai-modal');
-            const openAiModalBtn = document.getElementById('open-ai-modal-btn');
-            const closeAiModalBtn = document.getElementById('close-modal-btn');
-            const generateBioBtn = document.getElementById('generate-bio-btn');
-            const useBioBtn = document.getElementById('use-bio-btn');
-            const keywordsInput = document.getElementById('keywords-input');
-            const generatedBioTextarea = document.getElementById('generated-bio-textarea');
-            const bioText = document.getElementById('bio-text');
-            const loader = document.getElementById('loader-container');
-            const modalContent = document.getElementById('modal-content');
+            // --- Spotify Fetch Logic ---
+            async function fetchNowPlaying() {
+                const loadingDiv = document.getElementById('loading-spotify');
+                const contentDiv = document.getElementById('spotify-content');
 
-            if(aiModal) {
-                openAiModalBtn.addEventListener('click', () => aiModal.classList.remove('hidden'));
-                closeAiModalBtn.addEventListener('click', () => aiModal.classList.add('hidden'));
-                
-                useBioBtn.addEventListener('click', () => {
-                    if (generatedBioTextarea.value) {
-                        bioText.innerHTML = generatedBioTextarea.value.replace(/\n/g, '<br><br>');
-                        aiModal.classList.add('hidden');
+                try {
+                    // This fetch call goes to YOUR Vercel serverless function, not directly to Spotify
+                    const response = await fetch('/api/get-now-playing');
+                    
+                    if (!response.ok) {
+                        // This will catch HTTP errors like 404 or 500
+                        throw new Error(`HTTP error! status: ${response.status}`);
                     }
-                });
+                    
+                    const data = await response.json();
 
-                generateBioBtn.addEventListener('click', async () => {
-                    const keywords = keywordsInput.value;
-                    if (!keywords) {
-                        generatedBioTextarea.value = "Please enter some keywords first!";
-                        return;
+                    loadingDiv.classList.add('hidden');
+                    contentDiv.classList.remove('hidden');
+
+                    if (data.isPlaying) {
+                        document.getElementById('spotify-status').textContent = 'Currently Listening';
+                        document.getElementById('song-title').textContent = data.title;
+                        document.getElementById('artist-name').textContent = data.artist;
+                        document.getElementById('album-name').textContent = data.album;
+                        document.getElementById('album-art').src = data.albumImageUrl;
+                        document.getElementById('song-link').href = data.songUrl;
+                    } else {
+                        document.getElementById('spotify-status').textContent = 'Not Currently Listening';
+                        document.getElementById('song-title').textContent = "Nothing playing right now.";
+                        document.getElementById('artist-name').textContent = "Check back later!";
+                        document.getElementById('album-name').textContent = "";
                     }
 
-                    loader.classList.remove('hidden');
-                    loader.classList.add('flex');
-                    modalContent.classList.add('hidden');
-                    generateBioBtn.disabled = true;
-                    generateBioBtn.classList.add('opacity-50');
-
-                    // --- Create Project Context ---
-                    let projectContext = "Here is a summary of their key projects:\n";
-                    projects.forEach(p => {
-                        projectContext += `- ${p.title}: ${p.shortDescription}\n`;
-                    });
-
-                    const apiKey = ""; // API key is handled by the environment
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-                    
-                    const prompt = `You are a professional but creative copywriter. Write a short, engaging bio (around 3 paragraphs) for a portfolio website. The person's name is Sohum Sharma, an ML Researcher & AI Engineer.
-                    
-                    ${projectContext}
-
-                    Now, write a bio that incorporates the following keywords and concepts: "${keywords}".
-                    
-                    Make sure to naturally weave in his project experience with the keywords to create a compelling narrative about his skills and passions. Make the tone passionate, innovative, and slightly futuristic. Ground the bio in the provided project details.`;
-                    
-                    const payload = { contents: [{ parts: [{ text: prompt }] }] };
-
-                    try {
-                        const response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-                        if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
-                        const result = await response.json();
-                        if (result.candidates && result.candidates[0].content.parts.length > 0) {
-                            generatedBioTextarea.value = result.candidates[0].content.parts[0].text.trim();
-                            useBioBtn.classList.remove('hidden');
-                        } else {
-                            generatedBioTextarea.value = "Sorry, I couldn't generate a bio. Please try again.";
-                        }
-                    } catch (error) {
-                        console.error('Error calling Gemini API:', error);
-                        generatedBioTextarea.value = "An error occurred. Please check the console and try again.";
-                    } finally {
-                        loader.classList.add('hidden');
-                        loader.classList.remove('flex');
-                        modalContent.classList.remove('hidden');
-                        generateBioBtn.disabled = false;
-                        generateBioBtn.classList.remove('opacity-50');
-                    }
-                });
-            }
-        });
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sohum Sharma - Portfolio</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-    <style>
-        /* Custom styles for the page */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0c0a1a;
-            color: #e0e0e0;
-            overflow-x: hidden;
-            /* Set the background image with the reliable link you provided */
-            background-image: url('https://i.postimg.cc/vBB0kj2M/123520-Ori-and-the-Will-of-the-Wisps-screen-shot-video-games.jpg');
-            background-size: cover; /* Cover the entire viewport */
-            background-position: center center; /* Center the image */
-            background-repeat: no-repeat; /* Do not repeat the image */
-            background-attachment: fixed; /* Keep the background fixed during scroll */
-        }
-
-        /* NEW: Gradient text style - Gold/Orange theme */
-        .text-gradient {
-            background: linear-gradient(90deg, #FDB813, #F59E0B, #D97706);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-        }
-
-        /* Main container to hold the page content and background */
-        .main-container {
-            position: relative;
-            width: 100vw;
-            min-height: 100vh;
-            display: flex;
-        }
-        
-        /* NEW: Sidebar navigation link styling - Amber theme */
-        .nav-link {
-            transition: all 0.3s ease;
-        }
-        .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
-        }
-        .nav-link.active {
-             background-color: rgba(245, 158, 11, 0.2);
-             border-left: 3px solid #F59E0B;
-        }
-        
-        /* General page content styling */
-        .page-content {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* NEW: Card styling - Amber/Gold border */
-        .card {
-            background-color: rgba(12, 10, 26, 0.7); 
-            border: 1px solid rgba(217, 119, 6, 0.3);
-            backdrop-filter: blur(8px);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2);
-        }
-        .card-logo {
-            background-color: rgba(255,255,255,0.1);
-            min-width: 80px;
-            height: 80px;
-        }
-        .card-logo img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        }
-        
-        /* NEW: Project filter button styling - Amber theme */
-        .filter-btn {
-            background-color: transparent;
-            border: 1px solid #78350F;
-            color: #FBBF24;
-            transition: all 0.3s ease;
-        }
-        .filter-btn:hover {
-            background-color: #78350F;
-            color: white;
-        }
-        .filter-btn.active {
-            background-color: #F59E0B;
-            color: white;
-            border-color: #F59E0B;
-        }
-
-        /* Project card animation and cursor */
-        .project-card {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* Modal styles */
-        .modal-overlay {
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            transition: opacity 0.3s ease-in-out;
-        }
-        .modal-container {
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        }
-        
-        /* Loading spinner */
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #F59E0B;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-    </style>
-</head>
-<body>
-
-    <!-- Dark overlay for readability -->
-    <div class="fixed inset-0 bg-black bg-opacity-50 z-[-1]"></div>
-
-    <div class="main-container">
-        <!-- Left Sidebar Navigation -->
-        <nav class="bg-black bg-opacity-20 backdrop-blur-sm w-20 lg:w-64 flex-shrink-0 border-r border-white/10 flex flex-col justify-center items-center lg:items-start p-4 transition-all duration-300">
-            <ul class="space-y-4 w-full">
-                <li><a href="#home" class="nav-link active flex items-center p-3 rounded-lg text-white" data-target="home-page">
-                    <i class="fas fa-home fa-fw w-8 text-center text-lg"></i>
-                    <span class="hidden lg:inline ml-4 font-medium">Home</span>
-                </a></li>
-                <li><a href="#career" class="nav-link flex items-center p-3 rounded-lg text-white" data-target="career-page">
-                    <i class="fas fa-briefcase fa-fw w-8 text-center text-lg"></i>
-                    <span class="hidden lg:inline ml-4 font-medium">Career</span>
-                </a></li>
-                <li><a href="#education" class="nav-link flex items-center p-3 rounded-lg text-white" data-target="education-page">
-                    <i class="fas fa-graduation-cap fa-fw w-8 text-center text-lg"></i>
-                    <span class="hidden lg:inline ml-4 font-medium">Education</span>
-                </a></li>
-                <li><a href="#projects" class="nav-link flex items-center p-3 rounded-lg text-white" data-target="projects-page">
-                    <i class="fas fa-code-branch fa-fw w-8 text-center text-lg"></i>
-                    <span class="hidden lg:inline ml-4 font-medium">Projects</span>
-                </a></li>
-                <li><a href="https://github.com/Sohum3" target="_blank" class="nav-link flex items-center p-3 rounded-lg text-white">
-                    <i class="fab fa-github fa-fw w-8 text-center text-lg"></i>
-                    <span class="hidden lg:inline ml-4 font-medium">GitHub</span>
-                </a></li>
-                <li><a href="https://www.linkedin.com/in/sohum2001/" target="_blank" class="nav-link flex items-center p-3 rounded-lg text-white">
-                    <i class="fab fa-linkedin fa-fw w-8 text-center text-lg"></i>
-                    <span class="hidden lg:inline ml-4 font-medium">LinkedIn</span>
-                </a></li>
-                <li><a href="#interests" class="nav-link flex items-center p-3 rounded-lg text-white" data-target="interests-page">
-                    <i class="fas fa-heart fa-fw w-8 text-center text-lg"></i>
-                    <span class="hidden lg:inline ml-4 font-medium">Interests</span>
-                </a></li>
-                <li><a href="#music" class="nav-link flex items-center p-3 rounded-lg text-white" data-target="music-page">
-                    <i class="fas fa-music fa-fw w-8 text-center text-lg"></i>
-                    <span class="hidden lg:inline ml-4 font-medium">Music</span>
-                </a></li>
-            </ul>
-        </nav>
-
-        <!-- Main Content Area -->
-        <main class="flex-grow p-6 md:p-12 overflow-y-auto">
-            
-            <!-- Home Page -->
-            <div id="home-page" class="page-content flex flex-col items-center justify-center text-center h-full">
-                <div class="max-w-3xl">
-                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-gradient mb-4">
-                        Sohum Sharma
-                    </h1>
-                    <p class="text-xl md:text-2xl text-gray-300 mb-8">
-                        ML Researcher & AI Engineer
-                    </p>
-                    <p id="bio-text" class="text-lg text-gray-300 max-w-2xl mx-auto mb-4 text-left leading-relaxed bg-black/30 p-6 rounded-lg">
-                        Hi, I’m Sohum — a final-year Computer Science Engineering student at PES University with a deep drive to build the future through Machine Learning and AI. From the beginning of my journey in tech, I’ve always been more interested in solving meaningful, real-world problems than just chasing buzzwords. My fascination with intelligent systems comes from a desire to create solutions that aren’t just smart — but genuinely impactful.<br><br>
-                        Over the years, I’ve moved beyond textbooks to get hands-on with ML projects — from building object detection systems to working on real-time predictive models and resource optimization tools. I don’t just want to be someone who implements existing models; I want to understand them, question them, and push their boundaries. Research is where I find myself most alive — diving deep into papers, experimenting, failing fast, and learning faster.<br><br>
-                        Looking ahead, I’m driven by the goal of becoming an ML Researcher/Engineer who not only builds innovative systems but contributes to the core evolution of AI itself. Whether it's through research labs, open-source contributions, or building scalable products — I’m here to leave my mark.
-                    </p>
-                    
-                    <button id="open-ai-modal-btn" class="my-6 text-sm text-amber-400 hover:text-amber-300 transition-colors duration-300">
-                        ✨ Generate an alternative bio with AI
-                    </button>
-
-                    <div class="mt-8">
-                        <a href="https://github.com/Sohum3/My-portfolio-website/tree/main" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 border-b border-dashed border-gray-600 hover:border-white pb-1">
-                            <i class="fas fa-code-branch mr-2"></i>Access my open source portfolio website
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Career Page -->
-            <div id="career-page" class="page-content hidden">
-                 <h2 class="text-4xl font-bold text-gradient mb-10">Career</h2>
-                 <div class="space-y-8">
-                    <!-- Nimble Vision -->
-                    <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
-                        <div class="card-logo rounded-full flex items-center justify-center p-2">
-                           <img src="https://placehold.co/100x100/1a132d/ffffff?text=NV" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=NV';" alt="Nimble Vision Logo">
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="text-2xl font-bold text-white">Intern</h3>
-                            <p class="font-semibold text-amber-300">Nimble Vision</p>
-                            <p class="text-gray-400 mb-4">Feb 2025 & Jul 2024 - Aug 2024</p>
-                            <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>Trained a custom YOLOv8 model to detect pets, humans, and trucks for surveillance, achieving 72% accuracy.</li>
-                                <li>Leveraged Qualcomm AI Hub to compile, optimize, and deploy the model efficiently on Samsung S22 series devices.</li>
-                                <li>Architected and implemented a scalable backend solution for IoT devices using Django, achieving seamless integration with LORAWAN network servers.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- ONGC -->
-                    <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
-                        <div class="card-logo rounded-full flex items-center justify-center p-2">
-                           <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/ONGC_Logo.svg/1200px-ONGC_Logo.svg.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=ONGC';" alt="ONGC Logo">
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="text-2xl font-bold text-white">Intern</h3>
-                            <p class="font-semibold text-amber-300">Oil and Natural Gas Corporation (ONGC)</p>
-                            <p class="text-gray-400 mb-4">May 2024 - Jul 2024</p>
-                            <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>Automated the payroll process, significantly reducing manual effort and minimizing errors.</li>
-                                <li>Designed and implemented a streamlined system using SAP ABAP to automate data retrieval, processing, and payslip PDF generation.</li>
-                            </ul>
-                        </div>
-                    </div>
-                 </div>
-            </div>
-
-            <!-- Education Page -->
-            <div id="education-page" class="page-content hidden">
-                <h2 class="text-4xl font-bold text-gradient mb-10">Education</h2>
-                <div class="space-y-8">
-                    <!-- PES University -->
-                    <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
-                        <div class="card-logo rounded-full flex items-center justify-center p-2">
-                           <img src="https://www.pes.edu/wp-content/uploads/2022/11/pesu-logo-icon.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=PESU';" alt="PES University Logo">
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="text-2xl font-bold text-white">B.Tech in Computer Science</h3>
-                            <p class="font-semibold text-amber-300">PES University, Bengaluru</p>
-                            <p class="text-gray-400 mb-4">2022 - 2026</p>
-                        </div>
-                    </div>
-                    <!-- Modern School -->
-                    <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
-                        <div class="card-logo rounded-full flex items-center justify-center p-2">
-                           <img src="https://upload.wikimedia.org/wikipedia/en/e/ea/Modern_School_Logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=MS';" alt="Modern School Logo">
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="text-2xl font-bold text-white">CBSE Class XII</h3>
-                            <p class="font-semibold text-amber-300">Modern School, Barakhamba Road, New Delhi</p>
-                            <p class="text-gray-400 mb-4">2019</p>
-                        </div>
-                    </div>
-                 </div>
-            </div>
-
-            <!-- Projects Page -->
-            <div id="projects-page" class="page-content hidden">
-                 <h2 class="text-4xl font-bold text-gradient mb-10">Projects</h2>
-                 
-                 <!-- Filter Buttons -->
-                 <div class="flex flex-wrap justify-center gap-2 mb-10" id="project-filters">
-                    <button class="filter-btn active py-2 px-4 rounded-full text-sm font-semibold" data-filter="all">All</button>
-                    <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="ml">Machine Learning</button>
-                    <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="web">Web Development</button>
-                    <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="iot">IoT</button>
-                    <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="other">Other</button>
-                 </div>
-
-                 <!-- Project Grid -->
-                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
-                    <!-- Projects will be dynamically inserted here by JavaScript -->
-                 </div>
-            </div>
-
-            <!-- Interests Page -->
-            <div id="interests-page" class="page-content hidden flex flex-col items-center justify-center text-center h-full">
-                <h2 class="text-4xl font-bold text-gradient mb-10">Interests</h2>
-                <p class="text-lg text-gray-400">This section is under construction. Check back soon!</p>
-            </div>
-
-            <!-- Music Page -->
-            <div id="music-page" class="page-content hidden">
-                <h2 class="text-4xl font-bold text-gradient mb-10">Music</h2>
-                <div class="max-w-4xl mx-auto">
-                    <p class="text-lg text-gray-400">This section is currently under development. The goal is to integrate with the Spotify API to show my live listening activity.</p>
-                </div>
-            </div>
-
-
-        </main>
-    </div>
-
-    <!-- AI Bio Generator Modal -->
-    <div id="ai-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
-        <div class="bg-[#1a132d] rounded-2xl shadow-2xl p-8 w-11/12 md:w-1/2 lg:w-1/3 border border-amber-800/50">
-            <h2 class="text-2xl font-bold mb-4 text-gradient">AI Bio Generator</h2>
-            <p class="text-gray-400 mb-6">Enter some keywords to inspire the AI. The more descriptive, the better!</p>
-            <div id="modal-content">
-                <input id="keywords-input" type="text" placeholder="e.g., React, Python, pixel art, sci-fi movies" class="w-full bg-gray-900/50 border border-amber-700/50 rounded-lg p-3 mb-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
-                <textarea id="generated-bio-textarea" rows="5" class="w-full bg-gray-900/50 border border-amber-700/50 rounded-lg p-3 mb-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500" readonly placeholder="Your AI-generated bio will appear here..."></textarea>
-            </div>
-            <div id="loader-container" class="hidden items-center justify-center h-48">
-                <div class="loader"></div>
-            </div>
-            <div class="flex justify-end gap-4">
-                <button id="close-modal-btn" class="bg-transparent border border-gray-600 text-gray-300 font-bold py-2 px-6 rounded-lg hover:bg-gray-800 transition-all duration-300">Close</button>
-                <button id="generate-bio-btn" class="bg-gradient-to-r from-amber-600 to-yellow-600 text-white font-bold py-2 px-6 rounded-lg hover:shadow-xl transition-all duration-300">Generate</button>
-                <button id="use-bio-btn" class="bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-500 transition-all duration-300 hidden">Use This Bio</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Project Detail Modal -->
-    <div id="project-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 hidden" >
-        <div class="modal-container bg-[#1a132d] rounded-2xl shadow-2xl w-full max-w-3xl border border-amber-800/50 max-h-[90vh] overflow-y-auto transform scale-95 opacity-0">
-            <div class="p-6 md:p-8 relative">
-                <button id="close-project-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-white text-2xl">&times;</button>
-                <img id="project-modal-image" src="" alt="Project Image" class="w-full h-64 object-cover rounded-lg mb-6">
-                <h2 id="project-modal-title" class="text-3xl font-bold text-gradient mb-4"></h2>
-                <div id="project-modal-tags" class="flex flex-wrap gap-2 mb-6"></div>
-                <p id="project-modal-description" class="text-gray-300 leading-relaxed"></p>
-                <div class="mt-8">
-                    <a id="project-modal-link" href="#" target="_blank" class="inline-block bg-gradient-to-r from-amber-600 to-yellow-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-xl transition-all duration-300">
-                        <i class="fab fa-github mr-2"></i> View on GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // --- Page Navigation Logic ---
-            const navLinks = document.querySelectorAll('.nav-link');
-            const pages = document.querySelectorAll('.page-content');
-
-            navLinks.forEach(link => {
-                if (link.target === '_blank') return;
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('data-target');
-                    if (!targetId) return;
-                    navLinks.forEach(nav => nav.classList.remove('active'));
-                    link.classList.add('active');
-                    pages.forEach(page => {
-                        page.classList.toggle('hidden', page.id !== targetId);
-                    });
-                });
-            });
-
-            // --- Project Data ---
-            const projects = [
-                {
-                    id: 1,
-                    title: 'Detection of Neurological Disorders',
-                    shortDescription: "Multi-modal ML/DL model to detect disorders like Alzheimer's from fMRI scans.",
-                    longDescription: "This ongoing research project aims to develop a sophisticated multi-modal machine learning and deep learning model capable of accurately detecting a range of neurological disorders, including Alzheimer's, Parkinson's, and Schizophrenia. By analyzing functional Magnetic Resonance Imaging (fMRI) scans, the model learns to identify subtle patterns and biomarkers associated with each condition, paving the way for earlier and more accurate diagnoses.",
-                    category: 'ml',
-                    tags: ['Python', 'fMRI', 'Deep Learning', 'TensorFlow'],
-                    imageUrl: 'https://placehold.co/600x400/8A2BE2/FFFFFF?text=Neuro-AI',
-                    githubUrl: 'https://github.com/Sohum3/Neurological_Disorder_Detection_Using-_ML-DL'
-                },
-                {
-                    id: 2,
-                    title: 'Fine-Tuning BERT for Text Classification',
-                    shortDescription: 'Used Hugging Face and W&B to fine-tune BERT, improving model accuracy.',
-                    longDescription: "This project focused on the practical application of transfer learning in Natural Language Processing. I fine-tuned a pre-trained BERT model for a specific text classification task using the Hugging Face Transformers library. To ensure optimal performance, I integrated Weights & Biases for comprehensive experiment tracking, which allowed for systematic monitoring of training progress and effective hyperparameter tuning, leading to a significant improvement in model accuracy.",
-                    category: 'ml',
-                    tags: ['Python', 'BERT', 'Hugging Face', 'W&B'],
-                    imageUrl: 'https://placehold.co/600x400/4B0082/FFFFFF?text=NLP+BERT',
-                    githubUrl: '#'
-                },
-                {
-                    id: 3,
-                    title: 'Autonomous Waste Monitoring',
-                    shortDescription: 'IoT system with an active learning loop to predict bin fill status and self-label new data.',
-                    longDescription: "I engineered an end-to-end IoT system to optimize waste management. The system uses a dual-sensor array with IR sensors to reliably capture bin fill levels. A Random Forest Classifier, built with Scikit-learn, predicts the fill status. The core innovation is a fully-automated active learning loop that uses a high prediction confidence (95%) to self-label new data, allowing the model to continuously improve its accuracy over time without human intervention.",
-                    category: 'iot ml',
-                    tags: ['Python', 'Scikit-learn', 'IoT', 'Active Learning'],
-                    imageUrl: 'https://placehold.co/600x400/00FFFF/000000?text=Smart+Waste',
-                    githubUrl: 'https://github.com/Sohum3/IOT-ML-Garbage-Project'
-                },
-                {
-                    id: 4,
-                    title: 'Concert Ticket Booking System',
-                    shortDescription: 'Full-stack web application for booking concert tickets with a Flask backend.',
-                    longDescription: "To solidify my full-stack development skills, I built a complete web application for booking concert tickets. The backend was developed using Flask (Python) to handle business logic and API endpoints. Database management was handled with MySQL for storing user and ticket information. The frontend was designed with HTML and CSS to create a clean, intuitive, and user-friendly interface for a seamless customer interaction.",
-                    category: 'web',
-                    tags: ['Flask', 'MySQL', 'HTML/CSS', 'Python'],
-                    imageUrl: 'https://placehold.co/600x400/1E90FF/FFFFFF?text=Ticket+App',
-                    githubUrl: '#'
-                },
-                {
-                    id: 5,
-                    title: "Pinky's Paisa Plan",
-                    shortDescription: 'An agentic AI financial planner built with Gemini for a Google hackathon.',
-                    longDescription: "\"Pinky's Paisa Plan\" is an innovative financial planning agent developed for the Google Agentic AI Hackathon. This project leverages the power of the Gemini API to create a conversational AI that assists users with their financial goals. It can help with budgeting, investment suggestions, and creating personalized savings plans. The agentic workflow allows it to perform complex, multi-step financial analysis tasks, providing users with actionable and intelligent financial advice.",
-                    category: 'ml',
-                    tags: ['Gemini', 'Agentic AI', 'Finance', 'Python', 'Hackathon'],
-                    imageUrl: 'https://placehold.co/600x400/FF69B4/FFFFFF?text=Paisa+Plan',
-                    githubUrl: 'https://github.com/Sohum3/Pinkys-Paisa-Plan'
-                },
-                {
-                    id: 6,
-                    title: 'FirstAidMate: AI First Aid Assistant',
-                    shortDescription: 'A mobile-first app for instant first aid guidance and emergency assistance, built for a hackathon.',
-                    longDescription: 'Developed for the Hackoverflow Coding Carnival 2.0, FirstAidMate is a user-friendly application designed to provide quick access to essential first aid guidance. Key features include a nearby hospital locator using the Google Maps API, an interactive chatbot for immediate instructions, and one-tap emergency call redirection. The platform aims to put life-saving information directly into the user\'s hands when it matters most.',
-                    category: 'web ml',
-                    tags: ['Flask', 'Google Maps API', 'Firebase', 'AI Chatbot', 'Hackathon'],
-                    imageUrl: 'https://placehold.co/600x400/FF0000/FFFFFF?text=FirstAidMate',
-                    githubUrl: 'https://github.com/Sohum3/HoC2_OI_DifferentialCoders'
-                },
-                 {
-                    id: 7,
-                    title: 'SAP Report Automation',
-                    shortDescription: 'Automated generation of financial reports using SAP ABAP.',
-                    longDescription: 'During my internship at ONGC, I developed a program to automate the generation of critical financial reports. This solution, built with SAP ABAP, streamlined a previously manual process, significantly reducing the risk of human error and saving valuable time for the finance department.',
-                    category: 'other',
-                    tags: ['SAP ABAP', 'Automation', 'Enterprise'],
-                    imageUrl: 'https://placehold.co/600x400/6A5ACD/FFFFFF?text=SAP+Automation',
-                    githubUrl: 'https://github.com/Sohum3/Pay-Slip-Automation-System'
+                } catch (error) {
+                    console.error("Error fetching Spotify data:", error);
+                    loadingDiv.innerHTML = `<div class="text-center">
+                        <p class="text-cyan-400 font-semibold">Live Spotify data will appear here!</p>
+                        <p class="text-gray-400 mt-2 text-sm">This feature is active only when the site is deployed on a hosting service like Vercel. It requires a serverless backend which does not run in this preview environment.</p>
+                    </div>`;
                 }
-            ];
-
-            // --- Project Filtering & Rendering Logic ---
-            const projectGrid = document.getElementById('project-grid');
-            const filterButtons = document.querySelectorAll('#project-filters .filter-btn');
-            
-            function renderProjects(filter = 'all') {
-                projectGrid.innerHTML = '';
-                const filteredProjects = projects.filter(p => filter === 'all' || p.category.includes(filter));
-
-                filteredProjects.forEach(project => {
-                    const card = document.createElement('div');
-                    card.className = 'project-card card rounded-xl p-6';
-                    card.setAttribute('data-project-id', project.id);
-
-                    let tagsHTML = '';
-                    project.tags.forEach(tag => {
-                        tagsHTML += `<span class="bg-amber-900/50 text-amber-300 py-1 px-2 rounded">${tag}</span>`;
-                    });
-
-                    card.innerHTML = `
-                        <h3 class="text-xl font-bold text-white mb-2">${project.title}</h3>
-                        <p class="text-gray-400 mb-4">${project.shortDescription}</p>
-                        <div class="flex flex-wrap gap-2 text-xs">
-                            ${tagsHTML}
-                        </div>
-                    `;
-                    projectGrid.appendChild(card);
-                });
             }
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    const filter = button.getAttribute('data-filter');
-                    renderProjects(filter);
-                });
-            });
-
-            // --- Project Modal Logic ---
-            const projectModal = document.getElementById('project-modal');
-            const modalContainer = projectModal.querySelector('.modal-container');
-            const closeModalBtn = document.getElementById('close-project-modal-btn');
-            
-            projectGrid.addEventListener('click', (e) => {
-                const card = e.target.closest('.project-card');
-                if (card) {
-                    const projectId = parseInt(card.getAttribute('data-project-id'));
-                    const project = projects.find(p => p.id === projectId);
-                    if (project) {
-                        document.getElementById('project-modal-image').src = project.imageUrl;
-                        document.getElementById('project-modal-title').textContent = project.title;
-                        document.getElementById('project-modal-description').innerHTML = project.longDescription.replace(/\n/g, '<br>');
-                        document.getElementById('project-modal-link').href = project.githubUrl;
-                        
-                        const tagsContainer = document.getElementById('project-modal-tags');
-                        tagsContainer.innerHTML = '';
-                        project.tags.forEach(tag => {
-                            const tagEl = document.createElement('span');
-                            tagEl.className = 'bg-gray-700 text-gray-300 py-1 px-3 rounded-full text-sm';
-                            tagEl.textContent = tag;
-                            tagsContainer.appendChild(tagEl);
-                        });
-
-                        projectModal.classList.remove('hidden');
-                        setTimeout(() => {
-                           modalContainer.classList.remove('scale-95', 'opacity-0');
-                        }, 10);
-                    }
-                }
-            });
-
-            function closeProjectModal() {
-                 modalContainer.classList.add('scale-95', 'opacity-0');
-                 setTimeout(() => {
-                    projectModal.classList.add('hidden');
-                 }, 300);
-            }
-
-            closeModalBtn.addEventListener('click', closeProjectModal);
-            projectModal.addEventListener('click', (e) => {
-                if (e.target === projectModal) {
-                    closeProjectModal();
-                }
-            });
-
-
-            // Initial render of all projects
-            renderProjects();
 
             // --- AI Bio Generator Modal Logic ---
             const aiModal = document.getElementById('ai-modal');
