@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sohum Sharma - Portfolio</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -144,11 +141,9 @@
 </head>
 <body>
 
-    <!-- Dark overlay for readability -->
     <div class="fixed inset-0 bg-black bg-opacity-60 z-[-1]"></div>
 
     <div class="main-container">
-        <!-- Left Sidebar Navigation -->
         <nav class="bg-black bg-opacity-20 backdrop-blur-sm w-20 lg:w-64 flex-shrink-0 border-r border-white/10 flex flex-col justify-center items-center lg:items-start p-4 transition-all duration-300">
             <ul class="space-y-4 w-full">
                 <li><a href="#home" class="nav-link group relative active flex items-center p-3 rounded-lg text-white" data-target="home-page">
@@ -170,6 +165,12 @@
                     <i class="fas fa-code-branch fa-fw w-8 text-center text-lg"></i>
                     <span class="hidden lg:inline ml-4 font-medium">Projects</span>
                     <span class="absolute left-full ml-4 px-2 py-1 bg-gray-900/80 text-white text-sm rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap lg:hidden pointer-events-none">Projects</span>
+                </a></li>
+                
+                <li><a href="RenderCV_Classic_Theme__4_-2.pdf" download="Sohum_Sharma_Resume.pdf" class="nav-link group relative flex items-center p-3 rounded-lg text-white">
+                    <i class="fas fa-file-download fa-fw w-8 text-center text-lg"></i>
+                    <span class="hidden lg:inline ml-4 font-medium">Resume</span>
+                    <span class="absolute left-full ml-4 px-2 py-1 bg-gray-900/80 text-white text-sm rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap lg:hidden pointer-events-none">Resume</span>
                 </a></li>
                 <li><a href="https://github.com/Sohum3" target="_blank" class="nav-link group relative flex items-center p-3 rounded-lg text-white">
                     <i class="fab fa-github fa-fw w-8 text-center text-lg"></i>
@@ -194,10 +195,8 @@
             </ul>
         </nav>
 
-        <!-- Main Content Area -->
         <main class="flex-grow p-6 md:p-12 overflow-y-auto">
             
-            <!-- Home Page -->
             <div id="home-page" class="page-content flex flex-col items-center justify-center text-center h-full">
                 <div class="max-w-3xl">
                     <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-gradient mb-4">
@@ -224,49 +223,44 @@
                 </div>
             </div>
 
-            <!-- Career Page -->
             <div id="career-page" class="page-content hidden">
                  <h2 class="text-4xl font-bold text-gradient mb-10">Career</h2>
                  <div class="space-y-8">
-                    <!-- Nimble Vision -->
-                    <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
-                        <div class="card-logo rounded-full flex items-center justify-center p-2">
-                           <img src="https://placehold.co/100x100/1a132d/ffffff?text=NV" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=NV';" alt="Nimble Vision Logo">
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="text-2xl font-bold text-white">Intern</h3>
-                            <p class="font-semibold text-cyan-400">Nimble Vision</p>
-                            <p class="text-gray-400 mb-4">Feb 2025 & Jul 2024 - Aug 2024</p>
-                            <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>Trained a custom YOLOv8 model to detect pets, humans, and trucks for surveillance, achieving 72% accuracy.</li>
-                                <li>Leveraged Qualcomm AI Hub to compile, optimize, and deploy the model efficiently on Samsung S22 series devices.</li>
-                                <li>Architected and implemented a scalable backend solution for IoT devices using Django, achieving seamless integration with LORAWAN network servers.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- ONGC -->
-                    <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
-                        <div class="card-logo rounded-full flex items-center justify-center p-2">
-                           <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/ONGC_Logo.svg/1200px-ONGC_Logo.svg.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=ONGC';" alt="ONGC Logo">
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="text-2xl font-bold text-white">Intern</h3>
-                            <p class="font-semibold text-cyan-400">Oil and Natural Gas Corporation (ONGC)</p>
-                            <p class="text-gray-400 mb-4">May 2024 - Jul 2024</p>
-                            <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>Automated the payroll process, significantly reducing manual effort and minimizing errors.</li>
-                                <li>Designed and implemented a streamlined system using SAP ABAP to automate data retrieval, processing, and payslip PDF generation.</li>
-                            </ul>
-                        </div>
-                    </div>
+                     <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
+                         <div class="card-logo rounded-full flex items-center justify-center p-2">
+                            <img src="https://placehold.co/100x100/1a132d/ffffff?text=NV" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=NV';" alt="Nimble Vision Logo">
+                         </div>
+                         <div class="flex-grow">
+                             <h3 class="text-2xl font-bold text-white">Intern</h3>
+                             <p class="font-semibold text-cyan-400">Nimble Vision</p>
+                             <p class="text-gray-400 mb-4">Feb 2025 & Jul 2024 - Aug 2024</p>
+                             <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                 <li>Trained a custom YOLOv8 model to detect pets, humans, and trucks for surveillance, achieving 72% accuracy.</li>
+                                 <li>Leveraged Qualcomm AI Hub to compile, optimize, and deploy the model efficiently on Samsung S22 series devices.</li>
+                                 <li>Architected and implemented a scalable backend solution for IoT devices using Django, achieving seamless integration with LORAWAN network servers.</li>
+                             </ul>
+                         </div>
+                     </div>
+                     <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
+                         <div class="card-logo rounded-full flex items-center justify-center p-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/ONGC_Logo.svg/1200px-ONGC_Logo.svg.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=ONGC';" alt="ONGC Logo">
+                         </div>
+                         <div class="flex-grow">
+                             <h3 class="text-2xl font-bold text-white">Intern</h3>
+                             <p class="font-semibold text-cyan-400">Oil and Natural Gas Corporation (ONGC)</p>
+                             <p class="text-gray-400 mb-4">May 2024 - Jul 2024</p>
+                             <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                 <li>Automated the payroll process, significantly reducing manual effort and minimizing errors.</li>
+                                 <li>Designed and implemented a streamlined system using SAP ABAP to automate data retrieval, processing, and payslip PDF generation.</li>
+                             </ul>
+                         </div>
+                     </div>
                  </div>
             </div>
 
-            <!-- Education Page -->
             <div id="education-page" class="page-content hidden">
                 <h2 class="text-4xl font-bold text-gradient mb-10">Education</h2>
                 <div class="space-y-8">
-                    <!-- PES University -->
                     <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
                         <div class="card-logo rounded-full flex items-center justify-center p-2">
                            <img src="https://www.pes.edu/wp-content/uploads/2022/11/pesu-logo-icon.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=PESU';" alt="PES University Logo">
@@ -277,7 +271,6 @@
                             <p class="text-gray-400 mb-4">2022 - 2026</p>
                         </div>
                     </div>
-                    <!-- Modern School -->
                     <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
                         <div class="card-logo rounded-full flex items-center justify-center p-2">
                            <img src="https://upload.wikimedia.org/wikipedia/en/e/ea/Modern_School_Logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=MS';" alt="Modern School Logo">
@@ -288,55 +281,45 @@
                             <p class="text-gray-400 mb-4">2019</p>
                         </div>
                     </div>
-                 </div>
+                </div>
             </div>
 
-            <!-- Projects Page -->
             <div id="projects-page" class="page-content hidden">
                  <h2 class="text-4xl font-bold text-gradient mb-10">Projects</h2>
                  
-                 <!-- Filter Buttons -->
                  <div class="flex flex-wrap justify-center gap-2 mb-10" id="project-filters">
-                    <button class="filter-btn active py-2 px-4 rounded-full text-sm font-semibold" data-filter="all">All</button>
-                    <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="ml">Machine Learning</button>
-                    <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="web">Web Development</button>
-                    <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="iot">IoT</button>
-                    <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="other">Other</button>
+                     <button class="filter-btn active py-2 px-4 rounded-full text-sm font-semibold" data-filter="all">All</button>
+                     <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="ml">Machine Learning</button>
+                     <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="web">Web Development</button>
+                     <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="iot">IoT</button>
+                     <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="other">Other</button>
                  </div>
 
-                 <!-- Project Grid -->
                  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
-                    <!-- Projects will be dynamically inserted here by JavaScript -->
-                 </div>
+                     </div>
             </div>
 
-            <!-- Interests Page -->
             <div id="interests-page" class="page-content hidden">
                 <h2 class="text-4xl font-bold text-gradient mb-10 text-center">Interests & Hobbies</h2>
                 <div class="max-w-4xl mx-auto">
                     <p class="text-center text-lg text-gray-300 mb-12">Beyond the world of code and data, here are a few things I'm passionate about.</p>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
-                        <!-- Card 1: Music -->
                         <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
                             <i class="fas fa-music fa-3x mb-4 text-cyan-400"></i>
                             <h3 class="text-xl font-bold text-white">Music</h3>
                         </div>
-                        <!-- Card 2: Badminton -->
                         <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
                             <i class="fas fa-shuttlecock fa-3x mb-4 text-cyan-400"></i>
                             <h3 class="text-xl font-bold text-white">Badminton</h3>
                         </div>
-                        <!-- Card 3: Anime -->
                         <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
                             <i class="fas fa-dragon fa-3x mb-4 text-cyan-400"></i>
                             <h3 class="text-xl font-bold text-white">Anime</h3>
                         </div>
-                        <!-- Card 4: PC Games -->
                         <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
                             <i class="fas fa-gamepad fa-3x mb-4 text-cyan-400"></i>
                             <h3 class="text-xl font-bold text-white">PC Games</h3>
                         </div>
-                        <!-- Card 5: Cinema -->
                         <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
                             <i class="fas fa-film fa-3x mb-4 text-cyan-400"></i>
                             <h3 class="text-xl font-bold text-white">Cinema</h3>
@@ -346,7 +329,6 @@
                 </div>
             </div>
 
-            <!-- Music Page -->
             <div id="music-page" class="page-content hidden">
                 <h2 class="text-4xl font-bold text-gradient mb-10">Music</h2>
                 <div class="max-w-4xl mx-auto">
@@ -358,7 +340,6 @@
                     <div id="spotify-content" class="hidden">
                         <p class="text-lg text-gray-400 mb-8">Here's a glimpse into what I'm listening to on Spotify, refresh the page to stay updated :)</p>
                         
-                        <!-- Currently Playing Card -->
                         <div id="currently-playing-card" class="card rounded-xl p-6 mb-8">
                             <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
                                 <i class="fab fa-spotify text-green-500 mr-3"></i> 
@@ -381,7 +362,6 @@
         </main>
     </div>
 
-    <!-- AI Bio Generator Modal -->
     <div id="ai-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
         <div class="bg-[#1a132d] rounded-2xl shadow-2xl p-8 w-11/12 md:w-1/2 lg:w-1/3 border border-cyan-800/50">
             <h2 class="text-2xl font-bold mb-4 text-gradient">AI Bio Generator</h2>
@@ -401,7 +381,6 @@
         </div>
     </div>
 
-    <!-- Project Detail Modal -->
     <div id="project-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 hidden" >
         <div class="modal-container bg-[#1a132d] rounded-2xl shadow-2xl w-full max-w-3xl border border-cyan-800/50 max-h-[90vh] overflow-y-auto transform scale-95 opacity-0">
             <div class="p-6 md:p-8 relative">
@@ -626,7 +605,7 @@
 
                         projectModal.classList.remove('hidden');
                         setTimeout(() => {
-                           modalContainer.classList.remove('scale-95', 'opacity-0');
+                            modalContainer.classList.remove('scale-95', 'opacity-0');
                         }, 10);
                     }
                 }
@@ -635,7 +614,7 @@
             function closeProjectModal() {
                  modalContainer.classList.add('scale-95', 'opacity-0');
                  setTimeout(() => {
-                    projectModal.classList.add('hidden');
+                     projectModal.classList.add('hidden');
                  }, 300);
             }
 
