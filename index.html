@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sohum Sharma - Portfolio</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -56,8 +53,8 @@
             transform: translateX(5px);
         }
         .nav-link.active {
-             background-color: rgba(34, 211, 238, 0.2);
-             border-left: 3px solid #22D3EE;
+            background-color: rgba(34, 211, 238, 0.2);
+            border-left: 3px solid #22D3EE;
         }
         
         /* General page content styling */
@@ -144,11 +141,9 @@
 </head>
 <body>
 
-    <!-- Dark overlay for readability -->
     <div class="fixed inset-0 bg-black bg-opacity-60 z-[-1]"></div>
 
     <div class="main-container">
-        <!-- Left Sidebar Navigation -->
         <nav class="bg-black bg-opacity-20 backdrop-blur-sm w-20 lg:w-64 flex-shrink-0 border-r border-white/10 flex flex-col justify-center items-center lg:items-start p-4 transition-all duration-300">
             <ul class="space-y-4 w-full">
                 <li><a href="#home" class="nav-link group relative active flex items-center p-3 rounded-lg text-white" data-target="home-page">
@@ -194,10 +189,8 @@
             </ul>
         </nav>
 
-        <!-- Main Content Area -->
         <main class="flex-grow p-6 md:p-12 overflow-y-auto">
             
-            <!-- Home Page -->
             <div id="home-page" class="page-content flex flex-col items-center justify-center text-center h-full">
                 <div class="max-w-3xl">
                     <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-gradient mb-4">
@@ -212,10 +205,15 @@
                         Looking ahead, I’m driven by the goal of becoming an ML Researcher/Engineer who not only builds innovative systems but contributes to the core evolution of AI itself. Whether it's through research labs, open-source contributions, or building scalable products — I’m here to leave my mark.
                     </p>
                     
-                    <button id="open-ai-modal-btn" class="my-6 text-sm text-cyan-400 hover:text-cyan-300 transition-colors duration-300">
+                    <button id="open-ai-modal-btn" class="mt-6 mb-2 text-sm text-cyan-400 hover:text-cyan-300 transition-colors duration-300">
                         ✨ Generate an alternative bio with AI
                     </button>
 
+                    <div class="my-4">
+                        <a href="./RenderCV_Classic_Theme__4_-2.pdf" download="Sohum_Sharma_Resume.pdf" class="inline-block bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-xl transition-all duration-300">
+                            <i class="fas fa-download mr-2"></i> Download Resume
+                        </a>
+                    </div>
                     <div class="mt-8">
                         <a href="https://github.com/Sohum3/My-portfolio-website/tree/main" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 border-b border-dashed border-gray-600 hover:border-white pb-1">
                             <i class="fas fa-code-branch mr-2"></i>Access my open source portfolio website
@@ -224,60 +222,68 @@
                 </div>
             </div>
 
-            <!-- Career Page -->
             <div id="career-page" class="page-content hidden">
                  <h2 class="text-4xl font-bold text-gradient mb-10">Career</h2>
                  <div class="space-y-8">
-                    <!-- Nimble Vision -->
                     <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
                         <div class="card-logo rounded-full flex items-center justify-center p-2">
                            <img src="https://placehold.co/100x100/1a132d/ffffff?text=NV" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=NV';" alt="Nimble Vision Logo">
                         </div>
                         <div class="flex-grow">
-                            <h3 class="text-2xl font-bold text-white">Intern</h3>
+                            <h3 class="text-2xl font-bold text-white">Intern [Personal Project]</h3>
                             <p class="font-semibold text-cyan-400">Nimble Vision</p>
-                            <p class="text-gray-400 mb-4">Feb 2025 & Jul 2024 - Aug 2024</p>
+                            <p class="text-gray-400 mb-4">February 2025</p>
                             <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>Trained a custom YOLOv8 model to detect pets, humans, and trucks for surveillance, achieving 72% accuracy.</li>
+                                <li>Trained a custom YOLOv8 model to detect pets, humans, and trucks for use in surveillance camera systems, achieving 72% accuracy.</li>
                                 <li>Leveraged Qualcomm AI Hub to compile, optimize, and deploy the model efficiently on Samsung S22 series devices.</li>
-                                <li>Architected and implemented a scalable backend solution for IoT devices using Django, achieving seamless integration with LORAWAN network servers.</li>
+                                <li>Designed the solution with real-time performance and mobile deployment in mind for smart surveillance applications.</li>
                             </ul>
                         </div>
                     </div>
-                    <!-- ONGC -->
+                    <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
+                        <div class="card-logo rounded-full flex items-center justify-center p-2">
+                           <img src="https://placehold.co/100x100/1a132d/ffffff?text=NV" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=NV';" alt="Nimble Vision Logo">
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-bold text-white">Intern [Team Project]</h3>
+                            <p class="font-semibold text-cyan-400">Nimble Vision</p>
+                            <p class="text-gray-400 mb-4">July 2024 - August 2024</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                <li>Backend integration for IOT devices, achieved seamless improved system stability with LORAWAN network servers.</li>
+                                <li>Architected and implemented a scalable solution using Django, HTML, CSS, JavaScript.</li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
                         <div class="card-logo rounded-full flex items-center justify-center p-2">
                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/ONGC_Logo.svg/1200px-ONGC_Logo.svg.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=ONGC';" alt="ONGC Logo">
                         </div>
                         <div class="flex-grow">
-                            <h3 class="text-2xl font-bold text-white">Intern</h3>
+                            <h3 class="text-2xl font-bold text-white">Intern [Team Project]</h3>
                             <p class="font-semibold text-cyan-400">Oil and Natural Gas Corporation (ONGC)</p>
-                            <p class="text-gray-400 mb-4">May 2024 - Jul 2024</p>
+                            <p class="text-gray-400 mb-4">May 2024 - July 2024</p>
                             <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>Automated the payroll process, significantly reducing manual effort and minimizing errors.</li>
-                                <li>Designed and implemented a streamlined system using SAP ABAP to automate data retrieval, processing, and payslip PDF generation.</li>
+                                <li>Automated payroll process for ONGC, significantly reduced manual effort, minimized errors, and enhanced timely, accurate payroll delivery.</li>
+                                <li>Designed and implemented a streamlined system using SAP ABAP to automate data retrieval, processing, and pay slip pdf generation.</li>
                             </ul>
                         </div>
                     </div>
                  </div>
             </div>
 
-            <!-- Education Page -->
             <div id="education-page" class="page-content hidden">
                 <h2 class="text-4xl font-bold text-gradient mb-10">Education</h2>
                 <div class="space-y-8">
-                    <!-- PES University -->
                     <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
                         <div class="card-logo rounded-full flex items-center justify-center p-2">
                            <img src="https://www.pes.edu/wp-content/uploads/2022/11/pesu-logo-icon.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=PESU';" alt="PES University Logo">
                         </div>
                         <div class="flex-grow">
                             <h3 class="text-2xl font-bold text-white">B.Tech in Computer Science</h3>
-                            <p class="font-semibold text-cyan-400">PES University, Bengaluru</p>
+                            <p class="font-semibold text-cyan-400">PES University</p>
                             <p class="text-gray-400 mb-4">2022 - 2026</p>
                         </div>
                     </div>
-                    <!-- Modern School -->
                     <div class="card rounded-xl p-6 flex flex-col md:flex-row gap-6">
                         <div class="card-logo rounded-full flex items-center justify-center p-2">
                            <img src="https://upload.wikimedia.org/wikipedia/en/e/ea/Modern_School_Logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a132d/ffffff?text=MS';" alt="Modern School Logo">
@@ -291,52 +297,41 @@
                  </div>
             </div>
 
-            <!-- Projects Page -->
             <div id="projects-page" class="page-content hidden">
                  <h2 class="text-4xl font-bold text-gradient mb-10">Projects</h2>
                  
-                 <!-- Filter Buttons -->
                  <div class="flex flex-wrap justify-center gap-2 mb-10" id="project-filters">
                     <button class="filter-btn active py-2 px-4 rounded-full text-sm font-semibold" data-filter="all">All</button>
                     <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="ml">Machine Learning</button>
                     <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="web">Web Development</button>
                     <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="iot">IoT</button>
-                    <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="other">Other</button>
                  </div>
 
-                 <!-- Project Grid -->
                  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
-                    <!-- Projects will be dynamically inserted here by JavaScript -->
-                 </div>
+                    </div>
             </div>
 
-            <!-- Interests Page -->
             <div id="interests-page" class="page-content hidden">
                 <h2 class="text-4xl font-bold text-gradient mb-10 text-center">Interests & Hobbies</h2>
                 <div class="max-w-4xl mx-auto">
                     <p class="text-center text-lg text-gray-300 mb-12">Beyond the world of code and data, here are a few things I'm passionate about.</p>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
-                        <!-- Card 1: Music -->
                         <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
                             <i class="fas fa-music fa-3x mb-4 text-cyan-400"></i>
                             <h3 class="text-xl font-bold text-white">Music</h3>
                         </div>
-                        <!-- Card 2: Badminton -->
                         <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
                             <i class="fas fa-shuttlecock fa-3x mb-4 text-cyan-400"></i>
                             <h3 class="text-xl font-bold text-white">Badminton</h3>
                         </div>
-                        <!-- Card 3: Anime -->
                         <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
                             <i class="fas fa-dragon fa-3x mb-4 text-cyan-400"></i>
                             <h3 class="text-xl font-bold text-white">Anime</h3>
                         </div>
-                        <!-- Card 4: PC Games -->
                         <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
                             <i class="fas fa-gamepad fa-3x mb-4 text-cyan-400"></i>
                             <h3 class="text-xl font-bold text-white">PC Games</h3>
                         </div>
-                        <!-- Card 5: Cinema -->
                         <div class="card rounded-xl p-6 text-center flex flex-col items-center justify-center aspect-square">
                             <i class="fas fa-film fa-3x mb-4 text-cyan-400"></i>
                             <h3 class="text-xl font-bold text-white">Cinema</h3>
@@ -346,7 +341,6 @@
                 </div>
             </div>
 
-            <!-- Music Page -->
             <div id="music-page" class="page-content hidden">
                 <h2 class="text-4xl font-bold text-gradient mb-10">Music</h2>
                 <div class="max-w-4xl mx-auto">
@@ -358,7 +352,6 @@
                     <div id="spotify-content" class="hidden">
                         <p class="text-lg text-gray-400 mb-8">Here's a glimpse into what I'm listening to on Spotify, refresh the page to stay updated :)</p>
                         
-                        <!-- Currently Playing Card -->
                         <div id="currently-playing-card" class="card rounded-xl p-6 mb-8">
                             <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
                                 <i class="fab fa-spotify text-green-500 mr-3"></i> 
@@ -381,7 +374,6 @@
         </main>
     </div>
 
-    <!-- AI Bio Generator Modal -->
     <div id="ai-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
         <div class="bg-[#1a132d] rounded-2xl shadow-2xl p-8 w-11/12 md:w-1/2 lg:w-1/3 border border-cyan-800/50">
             <h2 class="text-2xl font-bold mb-4 text-gradient">AI Bio Generator</h2>
@@ -401,7 +393,6 @@
         </div>
     </div>
 
-    <!-- Project Detail Modal -->
     <div id="project-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 hidden" >
         <div class="modal-container bg-[#1a132d] rounded-2xl shadow-2xl w-full max-w-3xl border border-cyan-800/50 max-h-[90vh] overflow-y-auto transform scale-95 opacity-0">
             <div class="p-6 md:p-8 relative">
@@ -426,112 +417,52 @@
             const projects = [
                 {
                     id: 1,
-                    title: 'Detection of Neurological Disorders',
-                    shortDescription: "Multi-modal ML/DL model to detect disorders like Alzheimer's from fMRI scans.",
-                    longDescription: "This ongoing research project aims to develop a sophisticated multi-modal machine learning and deep learning model capable of accurately detecting a range of neurological disorders, including Alzheimer's, Parkinson's, and Schizophrenia. By analyzing functional Magnetic Resonance Imaging (fMRI) scans, the model learns to identify subtle patterns and biomarkers associated with each condition, paving the way for earlier and more accurate diagnoses.",
+                    title: 'Detection of Multiple Neurological Disorders',
+                    shortDescription: "Ongoing project to build a multi-modal ML/DL model for detecting disorders like Alzheimer's from medical images.",
+                    [cite_start]longDescription: "Developing a machine learning and deep learning multi-modal model to detect neurological disorders (Alzheimer's, Dementia, Parkinson's) using MRI, PET, and OCT images, annotated using Roboflow. [cite: 23] [cite_start]Achieved 98% accuracy with a ResNet model trained on 10,000 MRI images. [cite: 24] [cite_start]Compared CNN and Transformer architectures with different fusion methods to identify optimal performance. [cite: 25] [cite_start]Integrated YOLOv8 for precise region detection and utilized LIME and SHAP for clinical interpretability. [cite: 26]",
                     category: 'ml',
-                    tags: ['Python', 'fMRI', 'Deep Learning', 'TensorFlow'],
+                    tags: ['Deep Learning', 'ResNet', 'YOLOv8', 'MRI', 'Python'],
                     imageUrl: 'https://placehold.co/600x400/8A2BE2/FFFFFF?text=Neuro-AI',
-                    githubUrl: 'https://github.com/Sohum3/Neurological_Disorder_Detection_Using-_ML-DL'
+                    githubUrl: '#'
                 },
                 {
                     id: 2,
-                    title: 'Fine-Tuning BERT for Text Classification',
-                    shortDescription: 'Used Hugging Face and W&B to fine-tune BERT, improving model accuracy.',
-                    longDescription: "This project focused on the practical application of transfer learning in Natural Language Processing. I fine-tuned a pre-trained BERT model for a specific text classification task using the Hugging Face Transformers library. To ensure optimal performance, I integrated Weights & Biases for comprehensive experiment tracking, which allowed for systematic monitoring of training progress and effective hyperparameter tuning, leading to a significant improvement in model accuracy.",
+                    title: 'BERT+ResNet based Multimodal Emotion Detection',
+                    shortDescription: 'A deep learning model combining text (BERT) and video frames (ResNet50) to classify emotions.',
+                    [cite_start]longDescription: "Developed a multimodal deep learning model combining textual embeddings (BERT) and visual features (ResNet50) to classify emotions. [cite: 28] [cite_start]Achieved 68% accuracy by extracting text embeddings from sentences and visual features directly from video frames. [cite: 29] [cite_start]Enhanced prediction performance by effectively integrating textual and visual data into a unified end-to-end model. [cite: 30]",
                     category: 'ml',
-                    tags: ['Python', 'BERT', 'Hugging Face', 'W&B'],
-                    imageUrl: 'https://placehold.co/600x400/4B0082/FFFFFF?text=NLP+BERT',
+                    tags: ['Python', 'BERT', 'ResNet50', 'Deep Learning', 'Multimodal'],
+                    imageUrl: 'https://placehold.co/600x400/4B0082/FFFFFF?text=Emotion+AI',
                     githubUrl: '#'
                 },
                 {
                     id: 3,
-                    title: 'Autonomous Waste Monitoring',
-                    shortDescription: 'IoT system with an active learning loop to predict bin fill status and self-label new data.',
-                    longDescription: "I engineered an end-to-end IoT system to optimize waste management. The system uses a dual-sensor array with IR sensors to reliably capture bin fill levels. A Random Forest Classifier, built with Scikit-learn, predicts the fill status. The core innovation is a fully-automated active learning loop that uses a high prediction confidence (95%) to self-label new data, allowing the model to continuously improve its accuracy over time without human intervention.",
-                    category: 'iot ml',
-                    tags: ['Python', 'Scikit-learn', 'IoT', 'Active Learning'],
-                    imageUrl: 'https://placehold.co/600x400/00FFFF/000000?text=Smart+Waste',
-                    githubUrl: 'https://github.com/Sohum3/IOT-ML-Garbage-Project'
+                    title: 'BERT-based Question Answering System',
+                    shortDescription: 'Built a QA system using BERT on the CoQA dataset, tracked with Weights & Biases.',
+                    [cite_start]longDescription: "Built a question-answering system using a BERT-based model trained on the CoQA dataset for accurately extracting answers from text. [cite: 31] [cite_start]Transformed and tokenized data into a SQUAD-like format, implementing custom PyTorch data loaders and fine-tuning BERT using Hugging Face's Transformers library. [cite: 32] [cite_start]Integrated experiment tracking with Weights & Biases (wandb) to monitor training progress, achieving improved model accuracy through effective hyperparameter tuning. [cite: 33]",
+                    category: 'ml',
+                    tags: ['Python', 'PyTorch', 'BERT', 'Hugging Face', 'W&B', 'NLP'],
+                    imageUrl: 'https://placehold.co/600x400/4682B4/FFFFFF?text=BERT+QA',
+                    githubUrl: '#'
                 },
                 {
                     id: 4,
-                    title: 'Concert Ticket Booking System',
-                    shortDescription: 'Full-stack web application for booking concert tickets with a Flask backend.',
-                    longDescription: "To solidify my full-stack development skills, I built a complete web application for booking concert tickets. The backend was developed using Flask (Python) to handle business logic and API endpoints. Database management was handled with MySQL for storing user and ticket information. The frontend was designed with HTML and CSS to create a clean, intuitive, and user-friendly interface for a seamless customer interaction.",
-                    category: 'web',
-                    tags: ['Flask', 'MySQL', 'HTML/CSS', 'Python'],
-                    imageUrl: 'https://placehold.co/600x400/1E90FF/FFFFFF?text=Ticket+App',
+                    title: 'Autonomous Waste Monitoring with Active Learning',
+                    shortDescription: 'IoT system with a self-improving model to predict bin fill status using IR sensors.',
+                    [cite_start]longDescription: "Built an IoT system using Python, scikit-learn, and IR sensors to predict industrial bin fill status. [cite: 36] [cite_start]Created a fully-automated active learning loop that uses prediction confidence (95%) to self-label new data, enabling the model to continuously improve without human supervision. [cite: 37] [cite_start]Engineered a dual-sensor array for reliable data capture and trained a Random Forest Classifier for the prediction task. [cite: 38]",
+                    category: 'iot ml',
+                    tags: ['Python', 'Scikit-learn', 'IoT', 'Active Learning'],
+                    imageUrl: 'https://placehold.co/600x400/00FFFF/000000?text=Smart+Waste',
                     githubUrl: '#'
                 },
                 {
                     id: 5,
-                    title: "Pinky's Paisa Plan",
-                    shortDescription: 'An agentic AI financial planner built with Gemini for a Google hackathon.',
-                    longDescription: "\"Pinky's Paisa Plan\" is an innovative financial planning agent developed for the Google Agentic AI Hackathon. This project leverages the power of the Gemini API to create a conversational AI that assists users with their financial goals. It can help with budgeting, investment suggestions, and creating personalized savings plans. The agentic workflow allows it to perform complex, multi-step financial analysis tasks, providing users with actionable and intelligent financial advice.",
-                    category: 'ml',
-                    tags: ['Gemini', 'Agentic AI', 'Finance', 'Python', 'Hackathon'],
-                    imageUrl: 'https://placehold.co/600x400/FF69B4/FFFFFF?text=Paisa+Plan',
-                    githubUrl: 'https://github.com/Sohum3/Pinkys-Paisa-Plan'
-                },
-                {
-                    id: 6,
-                    title: 'FirstAidMate: AI First Aid Assistant',
-                    shortDescription: 'A mobile-first app for instant first aid guidance and emergency assistance, built for a hackathon.',
-                    longDescription: 'Developed for the Hackoverflow Coding Carnival 2.0, FirstAidMate is a user-friendly application designed to provide quick access to essential first aid guidance. Key features include a nearby hospital locator using the Google Maps API, an interactive chatbot for immediate instructions, and one-tap emergency call redirection. The platform aims to put life-saving information directly into the user\'s hands when it matters most.',
-                    category: 'web ml',
-                    tags: ['Flask', 'Google Maps API', 'Firebase', 'AI Chatbot', 'Hackathon'],
-                    imageUrl: 'https://placehold.co/600x400/FF0000/FFFFFF?text=FirstAidMate',
-                    githubUrl: 'https://github.com/Sohum3/HoC2_OI_DifferentialCoders'
-                },
-                 {
-                    id: 7,
-                    title: 'SAP Report Automation',
-                    shortDescription: 'Automated generation of financial reports using SAP ABAP.',
-                    longDescription: 'During my internship at ONGC, I developed a program to automate the generation of critical financial reports. This solution, built with SAP ABAP, streamlined a previously manual process, significantly reducing the risk of human error and saving valuable time for the finance department.',
-                    category: 'other',
-                    tags: ['SAP ABAP', 'Automation', 'Enterprise'],
-                    imageUrl: 'https://placehold.co/600x400/6A5ACD/FFFFFF?text=SAP+Automation',
-                    githubUrl: 'https://github.com/Sohum3/Pay-Slip-Automation-System'
-                },
-                {
-                    id: 8,
-                    title: 'Hotel Management GUI',
-                    shortDescription: "A desktop application with a Tkinter GUI to streamline hotel check-in and check-out.",
-                    longDescription: "Designed and implemented a graphical user interface (GUI) for hotel management using Python's Tkinter library. The application streamlined check-in and check-out processes, enhancing operational efficiency for hotel staff by providing an intuitive and easy-to-use interface for managing guest data and room status.",
-                    category: 'other',
-                    tags: ['Python', 'Tkinter', 'GUI'],
-                    imageUrl: 'https://placehold.co/600x400/7B68EE/FFFFFF?text=Hotel+GUI',
-                    githubUrl: '#'
-                },
-                {
-                    id: 9,
-                    title: 'Fitness Tracker with Hash Tables',
-                    shortDescription: "A fitness tracker application leveraging hash tables for efficient data management.",
-                    longDescription: "Developed a fitness tracker application leveraging hash tables for efficient data storage and retrieval of user activities and stats. The project demonstrated strong proficiency in fundamental data structures and algorithms (DSA) while managing user fitness data effectively, ensuring quick access and updates.",
-                    category: 'other',
-                    tags: ['Python', 'Data Structures', 'Algorithms', 'Hash Tables'],
-                    imageUrl: 'https://placehold.co/600x400/20B2AA/FFFFFF?text=Fitness+Tracker',
-                    githubUrl: '#'
-                },
-                {
-                    id: 10,
-                    title: 'Parity Checker in iVerilog',
-                    shortDescription: "Engineered and validated a parity checker circuit using iVerilog for hardware description.",
-                    longDescription: "Engineered and validated a parity checker circuit using iVerilog for hardware description. The project emphasized digital design principles and verification techniques, ensuring robust functionality for error detection in data transmission. This involved writing synthesizable Verilog code and creating a testbench for thorough simulation.",
-                    category: 'other',
-                    tags: ['iVerilog', 'Hardware', 'Digital Design'],
-                    imageUrl: 'https://placehold.co/600x400/32CD32/FFFFFF?text=iVerilog+Circuit',
-                    githubUrl: '#'
-                },
-                {
-                    id: 11,
-                    title: 'Flight Management System',
-                    shortDescription: "A comprehensive flight management system built in both Python and C.",
-                    longDescription: "Built a comprehensive flight management system in both Python and C, managing flight schedules, bookings, and customer data. This project highlighted cross-language programming skills and the ability to deliver robust, efficient solutions for complex logistical problems. The dual implementation showcased the trade-offs between Python's rapid development and C's performance.",
-                    category: 'other',
-                    tags: ['Python', 'C', 'System Design'],
-                    imageUrl: 'https://placehold.co/600x400/00CED1/FFFFFF?text=Flight+System',
+                    title: 'Full-Stack Concert Ticket Booking System',
+                    shortDescription: 'A full-stack web application for booking concert tickets with a Flask backend and MySQL database.',
+                    [cite_start]longDescription: "Developed a full-stack web application for booking concert tickets, providing a smooth and efficient user experience. [cite: 40] [cite_start]Built the backend using Flask (Python) and handled database management with MySQL. [cite: 41] [cite_start]Designed a clean and user-friendly frontend using HTML and CSS for easy customer interaction. [cite: 42]",
+                    category: 'web',
+                    tags: ['Flask', 'MySQL', 'HTML/CSS', 'Python', 'Full-Stack'],
+                    imageUrl: 'https://placehold.co/600x400/1E90FF/FFFFFF?text=Ticket+App',
                     githubUrl: '#'
                 }
             ];
@@ -635,7 +566,7 @@
             function closeProjectModal() {
                  modalContainer.classList.add('scale-95', 'opacity-0');
                  setTimeout(() => {
-                    projectModal.classList.add('hidden');
+                     projectModal.classList.add('hidden');
                  }, 300);
             }
 
@@ -735,7 +666,7 @@
                     });
 
                     const apiKey = ""; // API key is handled by the environment
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
                     
                     const prompt = `You are a professional but creative copywriter. Write a short, engaging bio (around 3 paragraphs) for a portfolio website. The person's name is Sohum Sharma, an ML Researcher & AI Engineer.
                     
