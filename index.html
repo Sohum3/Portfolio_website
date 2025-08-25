@@ -423,7 +423,7 @@
                     category: 'ml',
                     tags: ['Deep Learning', 'ResNet', 'YOLOv8', 'MRI', 'Python'],
                     imageUrl: 'https://placehold.co/600x400/8A2BE2/FFFFFF?text=Neuro-AI',
-                    githubUrl: '#'
+                    githubUrl: 'https://github.com/Sohum3/<neuro-repo>'
                 },
                 {
                     id: 2,
@@ -433,7 +433,7 @@
                     category: 'ml',
                     tags: ['Python', 'BERT', 'ResNet50', 'Deep Learning', 'Multimodal'],
                     imageUrl: 'https://placehold.co/600x400/4B0082/FFFFFF?text=Emotion+AI',
-                    githubUrl: '#'
+                    githubUrl: 'https://github.com/Sohum3/<emotion-repo>'
                 },
                 {
                     id: 3,
@@ -443,7 +443,7 @@
                     category: 'ml',
                     tags: ['Python', 'PyTorch', 'BERT', 'Hugging Face', 'W&B', 'NLP'],
                     imageUrl: 'https://placehold.co/600x400/4682B4/FFFFFF?text=BERT+QA',
-                    githubUrl: '#'
+                    githubUrl: 'https://github.com/Sohum3/<qa-repo>'
                 },
                 {
                     id: 4,
@@ -453,7 +453,7 @@
                     category: 'iot ml',
                     tags: ['Python', 'Scikit-learn', 'IoT', 'Active Learning'],
                     imageUrl: 'https://placehold.co/600x400/00FFFF/000000?text=Smart+Waste',
-                    githubUrl: '#'
+                    githubUrl: 'https://github.com/Sohum3/<waste-repo>'
                 },
                 {
                     id: 5,
@@ -463,7 +463,18 @@
                     category: 'web',
                     tags: ['Flask', 'MySQL', 'HTML/CSS', 'Python', 'Full-Stack'],
                     imageUrl: 'https://placehold.co/600x400/1E90FF/FFFFFF?text=Ticket+App',
-                    githubUrl: '#'
+                    githubUrl: 'https://github.com/Sohum3/<ticket-repo>'
+                },
+                /* ---- NEW PROJECT CARD ADDED BELOW ---- */
+                {
+                    id: 6,
+                    title: 'First Aid Assistant — Multimodal Voice + Image Triage',
+                    shortDescription: 'Gradio app that takes voice (and optional image), queries Groq models, and speaks a concise first-aid answer.',
+                    longDescription: "An educational first-aid assistant with a Gradio UI. It records/accepts voice, optionally takes an image of the injury/condition, queries Groq Whisper + multiple LLM/vision models, judges/merges candidate answers, and speaks the final response via ElevenLabs (EN) or gTTS (HI/KN). Includes tabs for conversation history, nearby hospitals (IP-based JSON), and emergency contacts. Dockerfile provided for containerized runs.",
+                    category: 'ml web',
+                    tags: ['Python', 'Gradio', 'Groq', 'Whisper', 'TTS', 'Multimodal', 'Docker'],
+                    imageUrl: 'https://placehold.co/600x400/06B6D4/FFFFFF?text=First-Aid+AI',
+                    githubUrl: 'https://github.com/Sohum3/HoC2_OI_DifferentialCoders'
                 }
             ];
 
@@ -473,25 +484,19 @@
             let spotifyDataFetched = false; // Flag to fetch only once
 
             navLinks.forEach(link => {
-                // We only add a click listener if the link has a 'data-target' attribute.
-                // This correctly includes internal links and ignores external ones like GitHub/LinkedIn.
                 if (link.hasAttribute('data-target')) {
                     link.addEventListener('click', (e) => {
-                        e.preventDefault(); // Prevent the URL hash from changing
-                        
+                        e.preventDefault();
                         const targetId = link.getAttribute('data-target');
                         if (!targetId) return;
 
-                        // Update active state for the clicked link
                         navLinks.forEach(nav => nav.classList.remove('active'));
                         link.classList.add('active');
 
-                        // Show the target page and hide the others
                         pages.forEach(page => {
                             page.classList.toggle('hidden', page.id !== targetId);
                         });
 
-                        // Fetch spotify data only when music page is clicked for the first time
                         if (targetId === 'music-page' && !spotifyDataFetched) {
                             fetchNowPlaying();
                             spotifyDataFetched = true;
@@ -542,33 +547,59 @@
             const projectModal = document.getElementById('project-modal');
             const modalContainer = projectModal.querySelector('.modal-container');
             const closeModalBtn = document.getElementById('close-project-modal-btn');
+            const projectModalLink = document.getElementById('project-modal-link');
+
+            // Helper: validate absolute http(s) URLs
+            function isAbsoluteHttpUrl(url) {
+                return typeof url === 'string' && /^https?:\/\//i.test(url);
+            }
             
             projectGrid.addEventListener('click', (e) => {
                 const card = e.target.closest('.project-card');
-                if (card) {
-                    const projectId = parseInt(card.getAttribute('data-project-id'));
-                    const project = projects.find(p => p.id === projectId);
-                    if (project) {
-                        document.getElementById('project-modal-image').src = project.imageUrl;
-                        document.getElementById('project-modal-title').textContent = project.title;
-                        document.getElementById('project-modal-description').innerHTML = project.longDescription.replace(/\n/g, '<br>');
-                        document.getElementById('project-modal-link').href = project.githubUrl;
-                        
-                        const tagsContainer = document.getElementById('project-modal-tags');
-                        tagsContainer.innerHTML = '';
-                        project.tags.forEach(tag => {
-                            const tagEl = document.createElement('span');
-                            tagEl.className = 'bg-gray-700 text-gray-300 py-1 px-3 rounded-full text-sm';
-                            tagEl.textContent = tag;
-                            tagsContainer.appendChild(tagEl);
-                        });
+                if (!card) return;
 
-                        projectModal.classList.remove('hidden');
-                        setTimeout(() => {
-                           modalContainer.classList.remove('scale-95', 'opacity-0');
-                        }, 10);
-                    }
+                const projectId = parseInt(card.getAttribute('data-project-id'));
+                const project = projects.find(p => p.id === projectId);
+                if (!project) return;
+
+                // Optional: Cmd/Ctrl-click opens repo directly in new tab if link is valid
+                if ((e.metaKey || e.ctrlKey) && isAbsoluteHttpUrl(project.githubUrl)) {
+                    window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
+                    return;
                 }
+
+                // Populate modal
+                document.getElementById('project-modal-image').src = project.imageUrl;
+                document.getElementById('project-modal-title').textContent = project.title;
+                document.getElementById('project-modal-description').innerHTML = project.longDescription.replace(/\n/g, '<br>');
+                
+                // Safe link setup (disable if invalid/missing)
+                if (isAbsoluteHttpUrl(project.githubUrl)) {
+                    projectModalLink.href = project.githubUrl;
+                    projectModalLink.target = '_blank';
+                    projectModalLink.rel = 'noopener noreferrer';
+                    projectModalLink.classList.remove('pointer-events-none', 'opacity-50');
+                    projectModalLink.innerHTML = '<i class="fab fa-github mr-2"></i> View on GitHub';
+                } else {
+                    projectModalLink.href = '#';
+                    projectModalLink.removeAttribute('target');
+                    projectModalLink.classList.add('pointer-events-none', 'opacity-50');
+                    projectModalLink.innerHTML = '<i class="fab fa-github mr-2"></i> Repo unavailable';
+                }
+
+                const tagsContainer = document.getElementById('project-modal-tags');
+                tagsContainer.innerHTML = '';
+                project.tags.forEach(tag => {
+                    const tagEl = document.createElement('span');
+                    tagEl.className = 'bg-gray-700 text-gray-300 py-1 px-3 rounded-full text-sm';
+                    tagEl.textContent = tag;
+                    tagsContainer.appendChild(tagEl);
+                });
+
+                projectModal.classList.remove('hidden');
+                setTimeout(() => {
+                   modalContainer.classList.remove('scale-95', 'opacity-0');
+                }, 10);
             });
 
             function closeProjectModal() {
@@ -595,11 +626,8 @@
                 const contentDiv = document.getElementById('spotify-content');
 
                 try {
-                    // This fetch call goes to YOUR Vercel serverless function, not directly to Spotify
                     const response = await fetch('/api/get-now-playing');
-                    
                     if (!response.ok) {
-                        // This will catch HTTP errors like 404 or 500
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
                     
