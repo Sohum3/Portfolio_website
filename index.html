@@ -86,7 +86,7 @@
         .card-logo img {
             max-width: 90%;
             max-height: 90%;
-            object-fit: contain;
+            object-fit: contain.
         }
         
         /* Project filter button styling - Cool Ice theme */
@@ -215,7 +215,6 @@
                         </a>
                     </div>
                     <div class="mt-8">
-                        <!-- UPDATED earlier: portfolio button link -->
                         <a href="https://github.com/Sohum3/Portfolio_website" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 border-b border-dashed border-gray-600 hover:border-white pb-1">
                             <i class="fas fa-code-branch mr-2"></i>Access my open source portfolio website
                         </a>
@@ -438,7 +437,6 @@
                 },
                 {
                     id: 3,
-                    /* UPDATED earlier: RAG-based QA project */
                     title: 'RAG-based Question Answering System',
                     shortDescription: 'Retrieval-Augmented Generation (RAG) QA system that retrieves relevant chunks and answers from grounded context.',
                     longDescription: "Built a RAG pipeline that indexes documents, performs chunking and vector search, retrieves top-k relevant passages, and composes answers grounded in the retrieved context.",
@@ -455,7 +453,6 @@
                     category: 'iot ml',
                     tags: ['Python', 'Scikit-learn', 'IoT', 'Active Learning'],
                     imageUrl: 'https://placehold.co/600x400/00FFFF/000000?text=Smart+Waste',
-                    /* UPDATED earlier: GitHub link for waste monitoring project */
                     githubUrl: 'https://github.com/Sohum3/IOT-ML-Garbage-Project'
                 },
                 {
@@ -480,12 +477,11 @@
                 },
                 {
                     id: 7,
-                    /* UPDATED NOW: Pinky's Paisa Plan descriptions only */
                     title: "Pinky's Paisa Plan",
-                    shortDescription: 'Multi-agent financial co-pilot that turns casual chat into actionable plans—taxes, retirement, and wealth management—built at the Google Agentic AI Hackathon.',
-                    longDescription: "Built during the historic Google Agentic AI Hackathon, Pinky's Paisa Plan is a comprehensive financial co-pilot powered by a multi-agent system. A meta-orchestrator intelligently routes user questions to specialist agents—including 'Tax Genome' for fiscal complexity, 'Retirement Reality' for long-term planning, and 'Wealth Guardian' for holistic asset management. The standout capability is translating everyday conversation into structured, actionable data, preserving context to deliver truly personalized guidance. By integrating with FIU APIs, the system grounds advice in a real-time view of a user's financial health. Selected as one of only 50 student teams and finalists among 57,000+ sign-ups, the project focused on reliability, explainability, and user trust.",
-                    category: 'web',
-                    tags: ['Personal Finance', 'Web'],
+                    shortDescription: 'Agentic AI financial co-pilot: multi-agent orchestration turns casual chat into actionable plans for taxes, retirement, and wealth.',
+                    longDescription: "Built during the historic Google Agentic AI Hackathon, Pinky's Paisa Plan is a comprehensive financial co-pilot powered by a multi-agent architecture. A meta-orchestrator intelligently routes user questions to specialist agents—including 'Tax Genome' for fiscal complexity, 'Retirement Reality' for long-term planning, and 'Wealth Guardian' for holistic asset management. Its standout capability is translating everyday conversation into structured, actionable data, preserving context for truly personalized guidance. FIU API integrations ground recommendations in a real-time view of a user's financial health. Selected as one of 50 student teams and finalists among 57,000+ sign-ups, the project emphasizes reliability, explainability, and user trust.",
+                    category: 'ml web',
+                    tags: ['Agentic AI', 'Multi-agent', 'Orchestration', 'LLM', 'FIU APIs', 'Personal Finance'],
                     imageUrl: 'https://placehold.co/600x400/F59E0B/FFFFFF?text=Pinky%27s+Paisa+Plan',
                     githubUrl: 'https://github.com/Sohum3/Pinkys-Paisa-Plan'
                 }
@@ -497,25 +493,19 @@
             let spotifyDataFetched = false; // Flag to fetch only once
 
             navLinks.forEach(link => {
-                // We only add a click listener if the link has a 'data-target' attribute.
-                // This correctly includes internal links and ignores external ones like GitHub/LinkedIn.
                 if (link.hasAttribute('data-target')) {
                     link.addEventListener('click', (e) => {
-                        e.preventDefault(); // Prevent the URL hash from changing
-                        
+                        e.preventDefault();
                         const targetId = link.getAttribute('data-target');
                         if (!targetId) return;
 
-                        // Update active state for the clicked link
                         navLinks.forEach(nav => nav.classList.remove('active'));
                         link.classList.add('active');
 
-                        // Show the target page and hide the others
                         pages.forEach(page => {
                             page.classList.toggle('hidden', page.id !== targetId);
                         });
 
-                        // Fetch spotify data only when music page is clicked for the first time
                         if (targetId === 'music-page' && !spotifyDataFetched) {
                             fetchNowPlaying();
                             spotifyDataFetched = true;
@@ -568,7 +558,6 @@
             const closeModalBtn = document.getElementById('close-project-modal-btn');
             const projectModalLink = document.getElementById('project-modal-link');
 
-            // Helper: validate absolute http(s) URLs
             function isAbsoluteHttpUrl(url) {
                 return typeof url === 'string' && /^https?:\/\//i.test(url);
             }
@@ -581,18 +570,15 @@
                 const project = projects.find(p => p.id === projectId);
                 if (!project) return;
 
-                // Optional: Cmd/Ctrl-click opens repo directly in new tab if link is valid
                 if ((e.metaKey || e.ctrlKey) && isAbsoluteHttpUrl(project.githubUrl)) {
                     window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
                     return;
                 }
 
-                // Populate modal
                 document.getElementById('project-modal-image').src = project.imageUrl;
                 document.getElementById('project-modal-title').textContent = project.title;
                 document.getElementById('project-modal-description').innerHTML = project.longDescription.replace(/\n/g, '<br>');
                 
-                // Safe link setup (disable if invalid/missing)
                 if (isAbsoluteHttpUrl(project.githubUrl)) {
                     projectModalLink.href = project.githubUrl;
                     projectModalLink.target = '_blank';
@@ -635,21 +621,15 @@
                 }
             });
 
-
-            // Initial render of all projects
             renderProjects();
 
-            // --- Spotify Fetch Logic ---
             async function fetchNowPlaying() {
                 const loadingDiv = document.getElementById('loading-spotify');
                 const contentDiv = document.getElementById('spotify-content');
 
                 try {
-                    // This fetch call goes to YOUR Vercel serverless function, not directly to Spotify
                     const response = await fetch('/api/get-now-playing');
-                    
                     if (!response.ok) {
-                        // This will catch HTTP errors like 404 or 500
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
                     
@@ -681,7 +661,6 @@
                 }
             }
 
-            // --- AI Bio Generator Modal Logic ---
             const aiModal = document.getElementById('ai-modal');
             const openAiModalBtn = document.getElementById('open-ai-modal-btn');
             const closeAiModalBtn = document.getElementById('close-modal-btn');
@@ -717,13 +696,12 @@
                     generateBioBtn.disabled = true;
                     generateBioBtn.classList.add('opacity-50');
 
-                    // --- Create Project Context ---
                     let projectContext = "Here is a summary of their key projects:\n";
                     projects.forEach(p => {
                         projectContext += `- ${p.title}: ${p.shortDescription}\n`;
                     });
 
-                    const apiKey = ""; // API key is handled by the environment
+                    const apiKey = ""; // handled by env
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
                     
                     const prompt = `You are a professional but creative copywriter. Write a short, engaging bio (around 3 paragraphs) for a portfolio website. The person's name is Sohum Sharma, an ML Researcher & AI Engineer.
