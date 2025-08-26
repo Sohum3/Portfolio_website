@@ -215,7 +215,8 @@
                         </a>
                     </div>
                     <div class="mt-8">
-                        <a href="https://github.com/Sohum3/My-portfolio-website/tree/main" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 border-b border-dashed border-gray-600 hover:border-white pb-1">
+                        <!-- UPDATED: portfolio button link -->
+                        <a href="https://github.com/Sohum3/Portfolio_website" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 border-b border-dashed border-gray-600 hover:border-white pb-1">
                             <i class="fas fa-code-branch mr-2"></i>Access my open source portfolio website
                         </a>
                     </div>
@@ -437,13 +438,14 @@
                 },
                 {
                     id: 3,
-                    title: 'BERT-based Question Answering System',
-                    shortDescription: 'Built a QA system using BERT on the CoQA dataset, tracked with Weights & Biases.',
-                    longDescription: "Built a question-answering system using a BERT-based model trained on the CoQA dataset for accurately extracting answers from text. Transformed and tokenized data into a SQUAD-like format, implementing custom PyTorch data loaders and fine-tuning BERT using Hugging Face's Transformers library. Integrated experiment tracking with Weights & Biases (wandb) to monitor training progress, achieving improved model accuracy through effective hyperparameter tuning.",
+                    /* UPDATED: RAG-based QA project */
+                    title: 'RAG-based Question Answering System',
+                    shortDescription: 'Retrieval-Augmented Generation (RAG) QA system that retrieves relevant chunks and answers from grounded context.',
+                    longDescription: "Built a RAG pipeline that indexes documents, performs chunking and vector search, retrieves top-k relevant passages, and composes answers grounded in the retrieved context.",
                     category: 'ml',
-                    tags: ['Python', 'PyTorch', 'BERT', 'Hugging Face', 'W&B', 'NLP'],
-                    imageUrl: 'https://placehold.co/600x400/4682B4/FFFFFF?text=BERT+QA',
-                    githubUrl: 'https://github.com/Sohum3/<qa-repo>'
+                    tags: ['Python', 'RAG', 'NLP'],
+                    imageUrl: 'https://placehold.co/600x400/4682B4/FFFFFF?text=RAG+QA',
+                    githubUrl: 'https://github.com/Sohum3/RAG-based-QA-system'
                 },
                 {
                     id: 4,
@@ -453,7 +455,8 @@
                     category: 'iot ml',
                     tags: ['Python', 'Scikit-learn', 'IoT', 'Active Learning'],
                     imageUrl: 'https://placehold.co/600x400/00FFFF/000000?text=Smart+Waste',
-                    githubUrl: 'https://github.com/Sohum3/<waste-repo>'
+                    /* UPDATED: GitHub link for waste monitoring project */
+                    githubUrl: 'https://github.com/Sohum3/IOT-ML-Garbage-Project'
                 },
                 {
                     id: 5,
@@ -465,7 +468,6 @@
                     imageUrl: 'https://placehold.co/600x400/1E90FF/FFFFFF?text=Ticket+App',
                     githubUrl: 'https://github.com/Sohum3/<ticket-repo>'
                 },
-                /* ---- NEW PROJECT CARD ADDED BELOW ---- */
                 {
                     id: 6,
                     title: 'First Aid Assistant — Multimodal Voice + Image Triage',
@@ -475,6 +477,17 @@
                     tags: ['Python', 'Gradio', 'Groq', 'Whisper', 'TTS', 'Multimodal', 'Docker'],
                     imageUrl: 'https://placehold.co/600x400/06B6D4/FFFFFF?text=First-Aid+AI',
                     githubUrl: 'https://github.com/Sohum3/HoC2_OI_DifferentialCoders'
+                },
+                {
+                    id: 7,
+                    /* NEW: Pinkys-Paisa-Plan project card */
+                    title: "Pinky's Paisa Plan",
+                    shortDescription: 'Personal finance planning tool for budgeting and tracking.',
+                    longDescription: "Project card added per request. See repository for full details, features, and setup instructions.",
+                    category: 'web',
+                    tags: ['Personal Finance', 'Web'],
+                    imageUrl: 'https://placehold.co/600x400/F59E0B/FFFFFF?text=Pinky%27s+Paisa+Plan',
+                    githubUrl: 'https://github.com/Sohum3/Pinkys-Paisa-Plan'
                 }
             ];
 
@@ -484,19 +497,25 @@
             let spotifyDataFetched = false; // Flag to fetch only once
 
             navLinks.forEach(link => {
+                // We only add a click listener if the link has a 'data-target' attribute.
+                // This correctly includes internal links and ignores external ones like GitHub/LinkedIn.
                 if (link.hasAttribute('data-target')) {
                     link.addEventListener('click', (e) => {
-                        e.preventDefault();
+                        e.preventDefault(); // Prevent the URL hash from changing
+                        
                         const targetId = link.getAttribute('data-target');
                         if (!targetId) return;
 
+                        // Update active state for the clicked link
                         navLinks.forEach(nav => nav.classList.remove('active'));
                         link.classList.add('active');
 
+                        // Show the target page and hide the others
                         pages.forEach(page => {
                             page.classList.toggle('hidden', page.id !== targetId);
                         });
 
+                        // Fetch spotify data only when music page is clicked for the first time
                         if (targetId === 'music-page' && !spotifyDataFetched) {
                             fetchNowPlaying();
                             spotifyDataFetched = true;
@@ -626,8 +645,11 @@
                 const contentDiv = document.getElementById('spotify-content');
 
                 try {
+                    // This fetch call goes to YOUR Vercel serverless function, not directly to Spotify
                     const response = await fetch('/api/get-now-playing');
+                    
                     if (!response.ok) {
+                        // This will catch HTTP errors like 404 or 500
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
                     
