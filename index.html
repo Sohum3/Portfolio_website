@@ -137,6 +137,20 @@
             100% { transform: rotate(360deg); }
         }
 
+        .conference-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(217,119,6,0.15));
+            border: 1px solid rgba(245,158,11,0.5);
+            color: #FCD34D;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 9999px;
+            letter-spacing: 0.02em;
+        }
+
     </style>
 </head>
 <body>
@@ -398,12 +412,24 @@
             <div class="p-6 md:p-8 relative">
                 <button id="close-project-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-white text-2xl">&times;</button>
                 <img id="project-modal-image" src="" alt="Project Image" class="w-full h-64 object-cover rounded-lg mb-6">
-                <h2 id="project-modal-title" class="text-3xl font-bold text-gradient mb-4"></h2>
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <h2 id="project-modal-title" class="text-3xl font-bold text-gradient"></h2>
+                    <span id="project-modal-conference-badge" class="conference-badge hidden">
+                        <i class="fas fa-award text-xs"></i>
+                        <span id="project-modal-conference-text"></span>
+                    </span>
+                </div>
                 <div id="project-modal-tags" class="flex flex-wrap gap-2 mb-6"></div>
                 <p id="project-modal-description" class="text-gray-300 leading-relaxed"></p>
-                <div class="mt-8">
+                <div class="mt-8 flex flex-wrap gap-4">
                     <a id="project-modal-link" href="#" target="_blank" class="inline-block bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-xl transition-all duration-300">
                         <i class="fab fa-github mr-2"></i> View on GitHub
+                    </a>
+                    <a id="project-modal-demo-link" href="#" target="_blank" class="hidden inline-block bg-gradient-to-r from-purple-700 to-indigo-700 text-white font-bold py-3 px-6 rounded-lg hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-play mr-2"></i> <span id="project-modal-demo-label">View Demo</span>
+                    </a>
+                    <a id="project-modal-acceptance-link" href="#" target="_blank" class="hidden inline-block bg-gradient-to-r from-green-700 to-emerald-700 text-white font-bold py-3 px-6 rounded-lg hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-certificate mr-2"></i> Acceptance Letter
                     </a>
                 </div>
             </div>
@@ -417,13 +443,31 @@
             const projects = [
                 {
                     id: 1,
-                    title: 'Detection of Multiple Neurological Disorders',
-                    shortDescription: "Ongoing project to build a multi-modal ML/DL model for detecting disorders like Alzheimer's from medical images.",
-                    longDescription: "Developing a machine learning and deep learning multi-modal model to detect neurological disorders (Alzheimer's, Dementia, Parkinson's) using MRI, PET, and OCT images, annotated using Roboflow. Achieved 98% accuracy with a ResNet model trained on 10,000 MRI images. Compared CNN and Transformer architectures with different fusion methods to identify optimal performance. Integrated YOLOv8 for precise region detection and utilized LIME and SHAP for clinical interpretability.",
+                    title: 'Neurological Disorder Detection',
+                    shortDescription: "Multimodal ML model (MRI + PET + clinical data); 88% accuracy, 0.96 AUC. Accepted at ICIRCA 2026.",
+                    longDescription: "A multimodal machine learning model for detecting neurological disorders using MRI scans, PET scans, and clinical data in combination. The pipeline incorporates hyperparameter tuning, k-fold cross-validation, and data augmentation on medical imaging inputs, achieving 88% accuracy and 0.96 AUC.\n\nGrad-CAM and LIME are used for model interpretability — generating lesion heatmaps on imaging data and highlighting key clinical risk factors, making predictions clinically transparent. The system is deployed as a single-click Streamlit application with automated patient data lookup, preprocessing, and real-time model inference.\n\nThis work has been accepted as a research paper at the 7th International Conference on Inventive Research in Computing Applications (ICIRCA 2026).",
                     category: 'ml',
-                    tags: ['Deep Learning', 'ResNet', 'YOLOv8', 'MRI', 'Python'],
+                    tags: ['Python', 'PyTorch', 'Grad-CAM', 'LIME', 'Streamlit', 'Medical Imaging'],
                     imageUrl: 'https://placehold.co/600x400/8A2BE2/FFFFFF?text=Neuro-AI',
-                    githubUrl: 'https://github.com/Sohum3/<neuro-repo>'
+                    githubUrl: 'https://github.com/Sohum3/Neurological_Disorder_Detection_Using-_ML-DL',
+                    demoUrl: 'https://drive.google.com/file/d/12tXxvLCKS7wQgeIfYXH5yCQq7uXF3tl5/view',
+                    demoLabel: 'View Presentation',
+                    acceptanceUrl: 'https://drive.google.com/file/d/1DsWxCmxKcL6gL2-HMaLB05DjOj-1jFEi/view',
+                    conference: 'ICIRCA 2026'
+                },
+                {
+                    id: 8,
+                    title: 'FinShield — Ad Click Fraud Detection',
+                    shortDescription: "Two-stage fraud detection pipeline on 1M+ fintech click records; 96% rule precision, 0.5544 PR-AUC. Identified ₹2.76 crore in high-risk ad spend.",
+                    longDescription: "FinShield is an end-to-end ad click fraud detection system built for the fintech domain. It implements a two-stage pipeline combining rule-based heuristics with an XGBoost classifier, applied to over 1 million click records.\n\nThe rule-based stage achieves 96% precision, acting as a fast pre-filter for obvious fraud patterns. The XGBoost stage handles the residual ambiguous cases, reaching a 0.5544 PR-AUC under extreme class imbalance — a challenging metric that reflects real-world fraud detection conditions.\n\nSHAP is integrated for explainability, surfacing which features drive each fraud prediction. A PostgreSQL analytics backend stores flagged records, while a Streamlit dashboard provides live KPI tracking — precision, PR-AUC, and flagged spend. In total, the system identified ₹2.76 crore in recoverable high-risk ad spend.",
+                    category: 'ml',
+                    tags: ['Python', 'XGBoost', 'SHAP', 'PostgreSQL', 'Streamlit'],
+                    imageUrl: 'https://placehold.co/600x400/0F4C81/FFFFFF?text=FinShield',
+                    githubUrl: '#',
+                    demoUrl: 'https://drive.google.com/file/d/1yONFll-H8Ud74EUTr4EiBTgc4JlhD0dR/view',
+                    demoLabel: 'View Demo',
+                    acceptanceUrl: null,
+                    conference: null
                 },
                 {
                     id: 2,
@@ -532,7 +576,12 @@
                         tagsHTML += `<span class="bg-cyan-900/50 text-cyan-300 py-1 px-2 rounded">${tag}</span>`;
                     });
 
+                    const conferenceBadge = project.conference
+                        ? `<div class="mb-3"><span class="conference-badge"><i class="fas fa-award text-xs"></i> ${project.conference}</span></div>`
+                        : '';
+
                     card.innerHTML = `
+                        ${conferenceBadge}
                         <h3 class="text-xl font-bold text-white mb-2">${project.title}</h3>
                         <p class="text-gray-400 mb-4">${project.shortDescription}</p>
                         <div class="flex flex-wrap gap-2 text-xs">
@@ -590,6 +639,36 @@
                     projectModalLink.removeAttribute('target');
                     projectModalLink.classList.add('pointer-events-none', 'opacity-50');
                     projectModalLink.innerHTML = '<i class="fab fa-github mr-2"></i> Repo unavailable';
+                }
+
+                // Conference badge
+                const badge = document.getElementById('project-modal-conference-badge');
+                const badgeText = document.getElementById('project-modal-conference-text');
+                if (project.conference) {
+                    badgeText.textContent = project.conference;
+                    badge.classList.remove('hidden');
+                } else {
+                    badge.classList.add('hidden');
+                }
+
+                // Demo / presentation link
+                const demoLink = document.getElementById('project-modal-demo-link');
+                const demoLabel = document.getElementById('project-modal-demo-label');
+                if (project.demoUrl) {
+                    demoLink.href = project.demoUrl;
+                    demoLabel.textContent = project.demoLabel || 'View Demo';
+                    demoLink.classList.remove('hidden');
+                } else {
+                    demoLink.classList.add('hidden');
+                }
+
+                // Acceptance letter link
+                const acceptanceLink = document.getElementById('project-modal-acceptance-link');
+                if (project.acceptanceUrl) {
+                    acceptanceLink.href = project.acceptanceUrl;
+                    acceptanceLink.classList.remove('hidden');
+                } else {
+                    acceptanceLink.classList.add('hidden');
                 }
 
                 const tagsContainer = document.getElementById('project-modal-tags');
