@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sohum Sharma - Portfolio</title>
-
+    
     <script src="https://cdn.tailwindcss.com"></script>
-
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
 
     <style>
+        /* Custom styles for the page */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0c141c;
+            background-color: #0c141c; /* Dark blue fallback color */
             color: #e0e0e0;
             overflow-x: hidden;
             background-image: url('https://i.postimg.cc/tJXNWMM8/pexels-pixabay-268533.jpg');
@@ -32,6 +33,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-fill-color: transparent;
         }
 
         /* Main container */
@@ -41,7 +43,7 @@
             min-height: 100vh;
             display: flex;
         }
-
+        
         /* Sidebar navigation link styling - Cool Ice theme */
         .nav-link {
             transition: all 0.3s ease;
@@ -54,7 +56,8 @@
             background-color: rgba(34, 211, 238, 0.2);
             border-left: 3px solid #22D3EE;
         }
-
+        
+        /* General page content styling */
         .page-content {
             animation: fadeIn 0.5s ease-in-out;
         }
@@ -66,7 +69,7 @@
 
         /* Card styling - Cool Ice border and more opaque background */
         .card {
-            background-color: rgba(15, 23, 42, 0.85);
+            background-color: rgba(15, 23, 42, 0.85); 
             border: 1px solid rgba(56, 189, 248, 0.3);
             backdrop-filter: blur(8px);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -83,9 +86,9 @@
         .card-logo img {
             max-width: 90%;
             max-height: 90%;
-            object-fit: contain;
+            object-fit: contain.
         }
-
+        
         /* Project filter button styling - Cool Ice theme */
         .filter-btn {
             background-color: transparent;
@@ -103,11 +106,13 @@
             border-color: #22D3EE;
         }
 
+        /* Project card animation and cursor */
         .project-card {
             transition: transform 0.3s ease, opacity 0.3s ease;
             cursor: pointer;
         }
 
+        /* Modal styles */
         .modal-overlay {
             background-color: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
@@ -116,7 +121,8 @@
         .modal-container {
             transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
         }
-
+        
+        /* Loading spinner */
         .loader {
             border: 4px solid #f3f3f3;
             border-top: 4px solid #22D3EE;
@@ -131,19 +137,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        .conference-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(217,119,6,0.15));
-            border: 1px solid rgba(245,158,11,0.5);
-            color: #FCD34D;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 9999px;
-            letter-spacing: 0.02em;
-        }
     </style>
 </head>
 <body>
@@ -197,7 +190,7 @@
         </nav>
 
         <main class="flex-grow p-6 md:p-12 overflow-y-auto">
-
+            
             <div id="home-page" class="page-content flex flex-col items-center justify-center text-center h-full">
                 <div class="max-w-3xl">
                     <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-gradient mb-4">
@@ -207,11 +200,11 @@
                         ML Researcher & AI Engineer
                     </p>
                     <p id="bio-text" class="text-lg text-gray-300 max-w-2xl mx-auto mb-4 text-left leading-relaxed bg-slate-900/70 backdrop-blur-sm p-6 rounded-lg">
-                        Hi, I'm Sohum — a final-year Computer Science Engineering student at PES University with a deep drive to build the future through Machine Learning and AI. From the beginning of my journey in tech, I've always been more interested in solving meaningful, real-world problems than just chasing buzzwords. My fascination with intelligent systems comes from a desire to create solutions that aren't just smart — but genuinely impactful.<br><br>
-                        Over the years, I've moved beyond textbooks to get hands-on with ML projects — from building object detection systems to working on real-time predictive models and resource optimization tools. I don't just want to be someone who implements existing models; I want to understand them, question them, and push their boundaries. Research is where I find myself most alive — diving deep into papers, experimenting, failing fast, and learning faster.<br><br>
-                        Looking ahead, I'm driven by the goal of becoming an ML Researcher/Engineer who not only builds innovative systems but contributes to the core evolution of AI itself. Whether it's through research labs, open-source contributions, or building scalable products — I'm here to leave my mark.
+                        Hi, I’m Sohum — a final-year Computer Science Engineering student at PES University with a deep drive to build the future through Machine Learning and AI. From the beginning of my journey in tech, I’ve always been more interested in solving meaningful, real-world problems than just chasing buzzwords. My fascination with intelligent systems comes from a desire to create solutions that aren’t just smart — but genuinely impactful.<br><br>
+                        Over the years, I’ve moved beyond textbooks to get hands-on with ML projects — from building object detection systems to working on real-time predictive models and resource optimization tools. I don’t just want to be someone who implements existing models; I want to understand them, question them, and push their boundaries. Research is where I find myself most alive — diving deep into papers, experimenting, failing fast, and learning faster.<br><br>
+                        Looking ahead, I’m driven by the goal of becoming an ML Researcher/Engineer who not only builds innovative systems but contributes to the core evolution of AI itself. Whether it's through research labs, open-source contributions, or building scalable products — I’m here to leave my mark.
                     </p>
-
+                    
                     <button id="open-ai-modal-btn" class="mt-6 mb-2 text-sm text-cyan-400 hover:text-cyan-300 transition-colors duration-300">
                         ✨ Generate an alternative bio with AI
                     </button>
@@ -306,7 +299,7 @@
 
             <div id="projects-page" class="page-content hidden">
                  <h2 class="text-4xl font-bold text-gradient mb-10">Projects</h2>
-
+                 
                  <div class="flex flex-wrap justify-center gap-2 mb-10" id="project-filters">
                    <button class="filter-btn active py-2 px-4 rounded-full text-sm font-semibold" data-filter="all">All</button>
                    <button class="filter-btn py-2 px-4 rounded-full text-sm font-semibold" data-filter="ml">Machine Learning</button>
@@ -351,17 +344,17 @@
             <div id="music-page" class="page-content hidden">
                 <h2 class="text-4xl font-bold text-gradient mb-10">Music</h2>
                 <div class="max-w-4xl mx-auto">
-
+                    
                     <div id="loading-spotify" class="flex justify-center items-center h-48">
                          <div class="loader"></div>
                     </div>
-
+            
                     <div id="spotify-content" class="hidden">
                         <p class="text-lg text-gray-400 mb-8">Here's a glimpse into what I'm listening to on Spotify, refresh the page to stay updated :)</p>
-
+                        
                         <div id="currently-playing-card" class="card rounded-xl p-6 mb-8">
                             <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
-                                <i class="fab fa-spotify text-green-500 mr-3"></i>
+                                <i class="fab fa-spotify text-green-500 mr-3"></i> 
                                 <span id="spotify-status">Currently Listening</span>
                             </h3>
                             <a id="song-link" href="#" target="_blank" class="flex items-center gap-6 group">
@@ -376,6 +369,7 @@
                     </div>
                 </div>
             </div>
+
 
         </main>
     </div>
@@ -399,29 +393,17 @@
         </div>
     </div>
 
-    <div id="project-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+    <div id="project-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 hidden" >
         <div class="modal-container bg-[#1a132d] rounded-2xl shadow-2xl w-full max-w-3xl border border-cyan-800/50 max-h-[90vh] overflow-y-auto transform scale-95 opacity-0">
             <div class="p-6 md:p-8 relative">
                 <button id="close-project-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-white text-2xl">&times;</button>
                 <img id="project-modal-image" src="" alt="Project Image" class="w-full h-64 object-cover rounded-lg mb-6">
-                <div class="flex flex-wrap items-center gap-3 mb-4">
-                    <h2 id="project-modal-title" class="text-3xl font-bold text-gradient"></h2>
-                    <span id="project-modal-conference-badge" class="conference-badge hidden">
-                        <i class="fas fa-award text-xs"></i>
-                        <span id="project-modal-conference-text"></span>
-                    </span>
-                </div>
+                <h2 id="project-modal-title" class="text-3xl font-bold text-gradient mb-4"></h2>
                 <div id="project-modal-tags" class="flex flex-wrap gap-2 mb-6"></div>
                 <p id="project-modal-description" class="text-gray-300 leading-relaxed"></p>
-                <div class="mt-8 flex flex-wrap gap-4">
+                <div class="mt-8">
                     <a id="project-modal-link" href="#" target="_blank" class="inline-block bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-xl transition-all duration-300">
                         <i class="fab fa-github mr-2"></i> View on GitHub
-                    </a>
-                    <a id="project-modal-demo-link" href="#" target="_blank" class="hidden inline-block bg-gradient-to-r from-purple-700 to-indigo-700 text-white font-bold py-3 px-6 rounded-lg hover:shadow-xl transition-all duration-300">
-                        <i class="fas fa-play mr-2"></i> <span id="project-modal-demo-label">View Demo</span>
-                    </a>
-                    <a id="project-modal-acceptance-link" href="#" target="_blank" class="hidden inline-block bg-gradient-to-r from-green-700 to-emerald-700 text-white font-bold py-3 px-6 rounded-lg hover:shadow-xl transition-all duration-300">
-                        <i class="fas fa-certificate mr-2"></i> Acceptance Letter
                     </a>
                 </div>
             </div>
@@ -435,31 +417,13 @@
             const projects = [
                 {
                     id: 1,
-                    title: 'Neurological Disorder Detection',
-                    shortDescription: "Multimodal ML model (MRI + PET + clinical data); 88% accuracy, 0.96 AUC. Accepted at ICIRCA 2026.",
-                    longDescription: "A multimodal machine learning model for detecting neurological disorders using MRI scans, PET scans, and clinical data in combination. The pipeline incorporates hyperparameter tuning, k-fold cross-validation, and data augmentation on medical imaging inputs, achieving 88% accuracy and 0.96 AUC.\n\nGrad-CAM and LIME are used for model interpretability — generating lesion heatmaps on imaging data and highlighting key clinical risk factors, making predictions clinically transparent. The system is deployed as a single-click Streamlit application with automated patient data lookup, preprocessing, and real-time model inference.\n\nThis work has been accepted as a research paper at the 7th International Conference on Inventive Research in Computing Applications (ICIRCA 2026).",
+                    title: 'Detection of Multiple Neurological Disorders',
+                    shortDescription: "Ongoing project to build a multi-modal ML/DL model for detecting disorders like Alzheimer's from medical images.",
+                    longDescription: "Developing a machine learning and deep learning multi-modal model to detect neurological disorders (Alzheimer's, Dementia, Parkinson's) using MRI, PET, and OCT images, annotated using Roboflow. Achieved 98% accuracy with a ResNet model trained on 10,000 MRI images. Compared CNN and Transformer architectures with different fusion methods to identify optimal performance. Integrated YOLOv8 for precise region detection and utilized LIME and SHAP for clinical interpretability.",
                     category: 'ml',
-                    tags: ['Python', 'PyTorch', 'Grad-CAM', 'LIME', 'Streamlit', 'Medical Imaging'],
+                    tags: ['Deep Learning', 'ResNet', 'YOLOv8', 'MRI', 'Python'],
                     imageUrl: 'https://placehold.co/600x400/8A2BE2/FFFFFF?text=Neuro-AI',
-                    githubUrl: 'https://github.com/Sohum3/Neurological_Disorder_Detection_Using-_ML-DL',
-                    demoUrl: 'https://drive.google.com/file/d/12tXxvLCKS7wQgeIfYXH5yCQq7uXF3tl5/view',
-                    demoLabel: 'View Presentation',
-                    acceptanceUrl: 'https://drive.google.com/file/d/1DsWxCmxKcL6gL2-HMaLB05DjOj-1jFEi/view',
-                    conference: 'ICIRCA 2026'
-                },
-                {
-                    id: 8,
-                    title: 'FinShield — Ad Click Fraud Detection',
-                    shortDescription: "Two-stage fraud detection pipeline on 1M+ fintech click records; 96% rule precision, 0.5544 PR-AUC. Identified ₹2.76 crore in high-risk ad spend.",
-                    longDescription: "FinShield is an end-to-end ad click fraud detection system built for the fintech domain. It implements a two-stage pipeline combining rule-based heuristics with an XGBoost classifier, applied to over 1 million click records.\n\nThe rule-based stage achieves 96% precision, acting as a fast pre-filter for obvious fraud patterns. The XGBoost stage handles the residual ambiguous cases, reaching a 0.5544 PR-AUC under extreme class imbalance — a challenging metric that reflects real-world fraud detection conditions.\n\nSHAP is integrated for explainability, surfacing which features drive each fraud prediction. A PostgreSQL analytics backend stores flagged records, while a Streamlit dashboard provides live KPI tracking — precision, PR-AUC, and flagged spend. In total, the system identified ₹2.76 crore in recoverable high-risk ad spend.",
-                    category: 'ml',
-                    tags: ['Python', 'XGBoost', 'SHAP', 'PostgreSQL', 'Streamlit'],
-                    imageUrl: 'https://placehold.co/600x400/0F4C81/FFFFFF?text=FinShield',
-                    githubUrl: '#',
-                    demoUrl: 'https://drive.google.com/file/d/1yONFll-H8Ud74EUTr4EiBTgc4JlhD0dR/view',
-                    demoLabel: 'View Demo',
-                    acceptanceUrl: null,
-                    conference: null
+                    githubUrl: 'https://github.com/Sohum3/<neuro-repo>'
                 },
                 {
                     id: 2,
@@ -469,10 +433,7 @@
                     category: 'ml',
                     tags: ['Python', 'BERT', 'ResNet50', 'Deep Learning', 'Multimodal'],
                     imageUrl: 'https://placehold.co/600x400/4B0082/FFFFFF?text=Emotion+AI',
-                    githubUrl: '#',
-                    demoUrl: null,
-                    acceptanceUrl: null,
-                    conference: null
+                    githubUrl: 'https://github.com/Sohum3/<emotion-repo>'
                 },
                 {
                     id: 3,
@@ -482,10 +443,7 @@
                     category: 'ml',
                     tags: ['Python', 'RAG', 'NLP'],
                     imageUrl: 'https://placehold.co/600x400/4682B4/FFFFFF?text=RAG+QA',
-                    githubUrl: 'https://github.com/Sohum3/RAG-based-QA-system',
-                    demoUrl: null,
-                    acceptanceUrl: null,
-                    conference: null
+                    githubUrl: 'https://github.com/Sohum3/RAG-based-QA-system'
                 },
                 {
                     id: 4,
@@ -495,10 +453,7 @@
                     category: 'iot ml',
                     tags: ['Python', 'Scikit-learn', 'IoT', 'Active Learning'],
                     imageUrl: 'https://placehold.co/600x400/00FFFF/000000?text=Smart+Waste',
-                    githubUrl: 'https://github.com/Sohum3/IOT-ML-Garbage-Project',
-                    demoUrl: null,
-                    acceptanceUrl: null,
-                    conference: null
+                    githubUrl: 'https://github.com/Sohum3/IOT-ML-Garbage-Project'
                 },
                 {
                     id: 5,
@@ -508,10 +463,7 @@
                     category: 'web',
                     tags: ['Flask', 'MySQL', 'HTML/CSS', 'Python', 'Full-Stack'],
                     imageUrl: 'https://placehold.co/600x400/1E90FF/FFFFFF?text=Ticket+App',
-                    githubUrl: '#',
-                    demoUrl: null,
-                    acceptanceUrl: null,
-                    conference: null
+                    githubUrl: 'https://github.com/Sohum3/<ticket-repo>'
                 },
                 {
                     id: 6,
@@ -521,10 +473,7 @@
                     category: 'ml web',
                     tags: ['Python', 'Gradio', 'Groq', 'Whisper', 'TTS', 'Multimodal', 'Docker'],
                     imageUrl: 'https://placehold.co/600x400/06B6D4/FFFFFF?text=First-Aid+AI',
-                    githubUrl: 'https://github.com/Sohum3/HoC2_OI_DifferentialCoders',
-                    demoUrl: null,
-                    acceptanceUrl: null,
-                    conference: null
+                    githubUrl: 'https://github.com/Sohum3/HoC2_OI_DifferentialCoders'
                 },
                 {
                     id: 7,
@@ -534,17 +483,14 @@
                     category: 'ml web',
                     tags: ['Agentic AI', 'Multi-agent', 'Orchestration', 'LLM', 'FIU APIs', 'Personal Finance'],
                     imageUrl: 'https://placehold.co/600x400/F59E0B/FFFFFF?text=Pinky%27s+Paisa+Plan',
-                    githubUrl: 'https://github.com/Sohum3/Pinkys-Paisa-Plan',
-                    demoUrl: null,
-                    acceptanceUrl: null,
-                    conference: null
+                    githubUrl: 'https://github.com/Sohum3/Pinkys-Paisa-Plan'
                 }
             ];
 
-            // --- Page Navigation & Spotify Fetch Logic ---
+            // --- CORRECTED Page Navigation & Spotify Fetch Logic ---
             const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page-content');
-            let spotifyDataFetched = false;
+            let spotifyDataFetched = false; // Flag to fetch only once
 
             navLinks.forEach(link => {
                 if (link.hasAttribute('data-target')) {
@@ -571,7 +517,7 @@
             // --- Project Filtering & Rendering Logic ---
             const projectGrid = document.getElementById('project-grid');
             const filterButtons = document.querySelectorAll('#project-filters .filter-btn');
-
+            
             function renderProjects(filter = 'all') {
                 projectGrid.innerHTML = '';
                 const filteredProjects = projects.filter(p => filter === 'all' || p.category.includes(filter));
@@ -586,12 +532,7 @@
                         tagsHTML += `<span class="bg-cyan-900/50 text-cyan-300 py-1 px-2 rounded">${tag}</span>`;
                     });
 
-                    const conferenceBadge = project.conference
-                        ? `<div class="mb-3"><span class="conference-badge"><i class="fas fa-award text-xs"></i> ${project.conference}</span></div>`
-                        : '';
-
                     card.innerHTML = `
-                        ${conferenceBadge}
                         <h3 class="text-xl font-bold text-white mb-2">${project.title}</h3>
                         <p class="text-gray-400 mb-4">${project.shortDescription}</p>
                         <div class="flex flex-wrap gap-2 text-xs">
@@ -620,7 +561,7 @@
             function isAbsoluteHttpUrl(url) {
                 return typeof url === 'string' && /^https?:\/\//i.test(url);
             }
-
+            
             projectGrid.addEventListener('click', (e) => {
                 const card = e.target.closest('.project-card');
                 if (!card) return;
@@ -636,8 +577,8 @@
 
                 document.getElementById('project-modal-image').src = project.imageUrl;
                 document.getElementById('project-modal-title').textContent = project.title;
-                document.getElementById('project-modal-description').innerHTML = project.longDescription.replace(/\n/g, '<br><br>');
-
+                document.getElementById('project-modal-description').innerHTML = project.longDescription.replace(/\n/g, '<br>');
+                
                 if (isAbsoluteHttpUrl(project.githubUrl)) {
                     projectModalLink.href = project.githubUrl;
                     projectModalLink.target = '_blank';
@@ -649,36 +590,6 @@
                     projectModalLink.removeAttribute('target');
                     projectModalLink.classList.add('pointer-events-none', 'opacity-50');
                     projectModalLink.innerHTML = '<i class="fab fa-github mr-2"></i> Repo unavailable';
-                }
-
-                // Conference badge
-                const badge = document.getElementById('project-modal-conference-badge');
-                const badgeText = document.getElementById('project-modal-conference-text');
-                if (project.conference) {
-                    badgeText.textContent = project.conference;
-                    badge.classList.remove('hidden');
-                } else {
-                    badge.classList.add('hidden');
-                }
-
-                // Demo / presentation link
-                const demoLink = document.getElementById('project-modal-demo-link');
-                const demoLabel = document.getElementById('project-modal-demo-label');
-                if (project.demoUrl) {
-                    demoLink.href = project.demoUrl;
-                    demoLabel.textContent = project.demoLabel || 'View Demo';
-                    demoLink.classList.remove('hidden');
-                } else {
-                    demoLink.classList.add('hidden');
-                }
-
-                // Acceptance letter link
-                const acceptanceLink = document.getElementById('project-modal-acceptance-link');
-                if (project.acceptanceUrl) {
-                    acceptanceLink.href = project.acceptanceUrl;
-                    acceptanceLink.classList.remove('hidden');
-                } else {
-                    acceptanceLink.classList.add('hidden');
                 }
 
                 const tagsContainer = document.getElementById('project-modal-tags');
@@ -721,7 +632,7 @@
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
-
+                    
                     const data = await response.json();
 
                     loadingDiv.classList.add('hidden');
@@ -764,7 +675,7 @@
             if(aiModal) {
                 openAiModalBtn.addEventListener('click', () => aiModal.classList.remove('hidden'));
                 closeAiModalBtn.addEventListener('click', () => aiModal.classList.add('hidden'));
-
+                
                 useBioBtn.addEventListener('click', () => {
                     if (generatedBioTextarea.value) {
                         bioText.innerHTML = generatedBioTextarea.value.replace(/\n/g, '<br><br>');
@@ -790,17 +701,17 @@
                         projectContext += `- ${p.title}: ${p.shortDescription}\n`;
                     });
 
-                    const apiKey = "";
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
+                    const apiKey = ""; // handled by env
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
+                    
                     const prompt = `You are a professional but creative copywriter. Write a short, engaging bio (around 3 paragraphs) for a portfolio website. The person's name is Sohum Sharma, an ML Researcher & AI Engineer.
-
+                    
                     ${projectContext}
 
                     Now, write a bio that incorporates the following keywords and concepts: "${keywords}".
-
+                    
                     Make sure to naturally weave in his project experience with the keywords to create a compelling narrative about his skills and passions. Make the tone passionate, innovative, and slightly futuristic. Ground the bio in the provided project details.`;
-
+                    
                     const payload = { contents: [{ parts: [{ text: prompt }] }] };
 
                     try {
